@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Adelle_Bold.otf</string>
+		<string>Adelle_BoldItalic.otf</string>
+		<string>Adelle_ExtraBold.otf</string>
+		<string>Adelle_ExtraBoldItalic.otf</string>
+		<string>Adelle_Heavy.otf</string>
+		<string>Adelle_HeavyItalic.otf</string>
+		<string>Adelle_Italic.otf</string>
+		<string>Adelle_light.otf</string>
+		<string>Adelle_LightItalic.otf</string>
+		<string>Adelle_Regular.otf</string>
+		<string>Adelle_SemiBold.otf</string>
+		<string>Adelle_SemiBoldItalic.otf</string>
+		<string>NotoSans-SemiBold.otf</string>
+		<string>NotoSansKR-Regular.otf</string>
+		<string>Pretendard-Bold.otf</string>
+		<string>Pretendard-SemiBold.otf</string>
+		<string>Pretendard-Medium.otf</string>
+		<string>Inter-Medium.otf</string>
+		<string>Inter-Regular.otf</string>
+		<string>Inter-ExtraLight.otf</string>
+		<string>AppleSDGothicNeoL.otf</string>
+		<string>JainiPurva-Regular.otf</string>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>
