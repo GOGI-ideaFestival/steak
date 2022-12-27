@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5267EC02-9BB4-4830-887F-5FE5F9DF29FB"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "18097727-B4FC-4C25-8D55-C7B640A4FF4F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ideaFestival/Sources/Presentaion/MainView/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "profileButton"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08F23A19-5983-4A03-A92B-49769FEB9B73"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ideaFestival/Sources/Presentaion/MainView/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "ProfileViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "08F23A19-5983-4A03-A92B-49769FEB9B73 - b727e96bb3100371"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UIButton) -&gt; () in variable initialization expression of ideaFestival.ProfileViewController.modifyButton : __C.UIButton"
+                  moduleName = "ideaFestival"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gsm02/Desktop/Gogi-iOS/GOGI/ideaFestival/Sources/Presentaion/MainView/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "30">
+               </Location>
+               <Location
+                  uuid = "08F23A19-5983-4A03-A92B-49769FEB9B73 - 3586b27ab94da01"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ideaFestival.ProfileViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; ideaFestival.ProfileViewController"
+                  moduleName = "ideaFestival"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gsm02/Desktop/Gogi-iOS/GOGI/ideaFestival/Sources/Presentaion/MainView/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "385">
+               </Location>
+               <Location
+                  uuid = "08F23A19-5983-4A03-A92B-49769FEB9B73 - 7fdbe831a919d343"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ideaFestival.ProfileViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ideaFestival.ProfileViewController&gt;"
+                  moduleName = "ideaFestival"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gsm02/Desktop/Gogi-iOS/GOGI/ideaFestival/Sources/Presentaion/MainView/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "314">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C1A5D0C-4D37-4FB2-BF29-867294664DBA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ideaFestival/Sources/Presentaion/MainView/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "modifyButton"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "1C1A5D0C-4D37-4FB2-BF29-867294664DBA - b727e96bb3100371"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UIButton) -&gt; () in variable initialization expression of ideaFestival.ProfileViewController.modifyButton : __C.UIButton"
+                  moduleName = "ideaFestival"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gsm02/Desktop/Gogi-iOS/GOGI/ideaFestival/Sources/Presentaion/MainView/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "30">
+               </Location>
+               <Location
+                  uuid = "1C1A5D0C-4D37-4FB2-BF29-867294664DBA - 3586b27ab94da01"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ideaFestival.ProfileViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; ideaFestival.ProfileViewController"
+                  moduleName = "ideaFestival"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gsm02/Desktop/Gogi-iOS/GOGI/ideaFestival/Sources/Presentaion/MainView/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "385">
+               </Location>
+               <Location
+                  uuid = "1C1A5D0C-4D37-4FB2-BF29-867294664DBA - 7fdbe831a919d343"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ideaFestival.ProfileViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ideaFestival.ProfileViewController&gt;"
+                  moduleName = "ideaFestival"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gsm02/Desktop/Gogi-iOS/GOGI/ideaFestival/Sources/Presentaion/MainView/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "314">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51DEC616-1B67-43A9-9D5D-1232028020A9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ideaFestival/Sources/Presentaion/MainView/ProfileVC/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "mypenaltyImageView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE30DC15-96A7-4FCB-9E13-17EACD5FD07C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ideaFestival/Sources/Presentaion/MainView/ProfileVC/ModifyViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "changeProfileButton"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
