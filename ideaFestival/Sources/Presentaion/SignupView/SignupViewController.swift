@@ -3,71 +3,102 @@ import UIKit
 import Then
 
 class SignupViewController: BaseViewController{
- 
-    private func setUI(){
-        view.backgroundColor = .white
-        addView()
-    }
-    
-    override func addView(){
-        view.addSubviews(
-        emailUITextField,
-        pwdUITextField,
-        pwdCheckUITextField,
-        nicknameUITextField,
-        selectPositionUIButton
-        )
-    }
+
+    private let backUIBarButtonItem = UIBarButtonItem()
     
     private let emailUITextField = UITextField().then{
         $0.becomeFirstResponder()
         $0.layer.cornerRadius = 25
         $0.placeholder = "이메일"
-        $0.textColor = .white
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 15)
+        $0.textColor = UIColor(rgb: 0xFFFFFF)
         $0.leftViewMode = .always
         $0.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         $0.backgroundColor = UIColor(rgb: 0xDAD1C6)
-        $0.enablesReturnKeyAutomatically = true
     }
     
     private let pwdUITextField = UITextField().then{
         $0.layer.cornerRadius = 25
         $0.placeholder = "비밀번호"
-        $0.textColor = .white
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 15)
+        $0.textColor = UIColor(rgb: 0xFFFFFF)
         $0.leftViewMode = .always
         $0.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         $0.backgroundColor = UIColor(rgb: 0xDAD1C6)
         $0.isSecureTextEntry = true
-        $0.enablesReturnKeyAutomatically = true
     }
     
     private let pwdCheckUITextField = UITextField().then{
         $0.layer.cornerRadius = 25
         $0.placeholder = "비밀번호 확인"
-        $0.textColor = .white
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 15)
+        $0.textColor = UIColor(rgb: 0xFFFFFF)
         $0.leftViewMode = .always
         $0.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         $0.backgroundColor = UIColor(rgb: 0xDAD1C6)
         $0.isSecureTextEntry = true
-        $0.enablesReturnKeyAutomatically = true
     }
     
     private let nicknameUITextField = UITextField().then{
         $0.layer.cornerRadius = 25
         $0.placeholder = "닉네임"
-        $0.textColor = .white
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 15)
+        $0.textColor = UIColor(rgb: 0xFFFFFF)
         $0.leftViewMode = .always
         $0.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         $0.backgroundColor = UIColor(rgb: 0xDAD1C6)
-        $0.enablesReturnKeyAutomatically = true
     }
     
     private let selectPositionUIButton = UIButton().then{
         $0.setTitle("역할 선택하기", for: .normal)
         $0.setTitleColor(UIColor.black, for: .normal)
         $0.addTarget(self, action: #selector(goSelect), for: .touchUpInside)
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        $0.titleLabel?.font = UIFont(name: "JainiPurva-Regular", size: 15)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.backBarButtonItem = backUIBarButtonItem
+        backUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
+    }
+
+       override func addView(){
+           view.addSubviews(
+           emailUITextField,
+           pwdUITextField,
+           pwdCheckUITextField,
+           nicknameUITextField,
+           selectPositionUIButton
+           )
+       }
+    
+    override func setLayout(){
+        self.emailUITextField.snp.makeConstraints{
+            $0.top.equalTo(self.view).offset(305)
+            $0.leading.trailing.equalTo(self.view).inset(29)
+            $0.height.equalTo(53)
+        }
+        self.pwdUITextField.snp.makeConstraints{
+            $0.top.equalTo(self.view).offset(371)
+            $0.leading.trailing.equalTo(self.view).inset(29)
+            $0.height.equalTo(53)
+        }
+        self.pwdCheckUITextField.snp.makeConstraints{
+            $0.top.equalTo(self.view).offset(437)
+            $0.leading.trailing.equalTo(self.view).inset(29)
+            $0.height.equalTo(53)
+        }
+        self.nicknameUITextField.snp.makeConstraints{
+            $0.top.equalTo(self.view).offset(503)
+            $0.leading.trailing.equalTo(self.view).inset(29)
+            $0.height.equalTo(53)
+        }
+        self.selectPositionUIButton.snp.makeConstraints{
+            $0.top.equalTo(self.view).offset(584)
+            $0.leading.trailing.equalTo(self.view).inset(29)
+        }
+    }
+    
     
     @objc private func goSelect(){
         self.TFdidChanged()
@@ -77,33 +108,6 @@ class SignupViewController: BaseViewController{
         self.pwdFormatCheck()
         let controller = ChoiceViewController()
         navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    override func setLayout(){
-        self.emailUITextField.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(305)
-            $0.bottom.equalTo(self.view).inset(486)
-            $0.leading.trailing.equalTo(self.view).inset(29)
-        }
-        self.pwdUITextField.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(371)
-            $0.bottom.equalTo(self.view).inset(420)
-            $0.leading.trailing.equalTo(self.view).inset(29)
-        }
-        self.pwdCheckUITextField.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(437)
-            $0.bottom.equalTo(self.view).inset(354)
-            $0.leading.trailing.equalTo(self.view).inset(29)
-        }
-        self.nicknameUITextField.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(503)
-            $0.bottom.equalTo(self.view).inset(288)
-            $0.leading.trailing.equalTo(self.view).inset(29)
-        }
-        self.selectPositionUIButton.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(584)
-            $0.leading.trailing.equalTo(self.view).inset(29)
-        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
