@@ -9,7 +9,7 @@ final class AnnounceViewController: BaseViewController {
     private let noticeTitleUILabel = UILabel().then {
         $0.text = "N o t i c e"
         $0.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
-        $0.font = UIFont(name: "Adelle-Bold", size: 27)
+        $0.font = UIFont(name: "Adelle-Bold", size: 30)
     }
     
     private let notice1UIButton = UIButton().then {
@@ -78,31 +78,31 @@ final class AnnounceViewController: BaseViewController {
     
     override func setLayout() {
         self.noticeTitleUILabel.snp.makeConstraints {
-            $0.top.equalTo(self.view).offset(91)
+            $0.top.equalTo(self.view).offset(130)
             $0.leading.equalTo(self.view).offset(50)
         }
         self.notice1UIButton.snp.makeConstraints {
-            $0.top.equalTo (self.view).offset(231)
+            $0.top.equalTo (self.view).offset(221)
             $0.leading.trailing.equalTo(self.view).inset(26)
-            $0.height.equalTo(77)
+            $0.height.equalTo(88)
         }
         
         self.notice2UIButton.snp.makeConstraints {
-            $0.top.equalTo (self.notice1UIButton.snp.bottom).offset(59)
+            $0.top.equalTo (self.notice1UIButton.snp.bottom).offset(49)
             $0.leading.trailing.equalTo(self.view).inset(26)
-            $0.height.equalTo(77)
+            $0.height.equalTo(88)
         }
         
         self.notice3UIButton.snp.makeConstraints {
-            $0.top.equalTo (self.notice2UIButton.snp.bottom).offset(59)
+            $0.top.equalTo (self.notice2UIButton.snp.bottom).offset(49)
             $0.leading.trailing.equalTo(self.view).inset(26)
-            $0.height.equalTo(77)
+            $0.height.equalTo(88)
         }
         
         self.notice4UIButton.snp.makeConstraints {
-            $0.top.equalTo (self.notice3UIButton.snp.bottom).offset(59)
+            $0.top.equalTo (self.notice3UIButton.snp.bottom).offset(49)
             $0.leading.trailing.equalTo(self.view).inset(26)
-            $0.height.equalTo(77)
+            $0.height.equalTo(88)
         }
     }
     

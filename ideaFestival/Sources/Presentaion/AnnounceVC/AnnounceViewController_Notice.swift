@@ -44,7 +44,7 @@ class AnnounceViewController_Notice: BaseViewController {
         self.noticeContentsFrameUIView.snp.makeConstraints {
             $0.top.equalTo(self.view).offset(192)
             $0.leading.trailing.equalTo(self.view).inset(37)
-            $0.height.equalTo(592)
+            $0.height.equalTo(550)
         }
         self.noticeContentsUILabel.snp.makeConstraints {
             $0.top.equalTo(self.noticeContentsFrameUIView.snp.top).inset(48)
