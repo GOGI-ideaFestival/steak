@@ -46,6 +46,7 @@
 		78C673B1294DF50F006898C8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C673B0294DF50F006898C8 /* BaseViewController.swift */; };
 		78C673B4294DF594006898C8 /* UIView+addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C673B3294DF594006898C8 /* UIView+addSubviews.swift */; };
 		78C673B7294DF6A3006898C8 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C673B6294DF6A3006898C8 /* UIColor+Hex.swift */; };
+		9B11E5A9295C30090051F8E9 /* AnnounceViewController_Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11E5A8295C30090051F8E9 /* AnnounceViewController_Notice.swift */; };
 		B81E4E6A2953E6BE005F8AA3 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B81E4E692953E6BE005F8AA3 /* NotoSansKR-Regular.otf */; };
 		B81E4E6E29551865005F8AA3 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B81E4E6D29551865005F8AA3 /* Pretendard-Bold.otf */; };
 		B81E4E7029551870005F8AA3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B81E4E6F29551870005F8AA3 /* Pretendard-SemiBold.otf */; };
@@ -91,6 +92,7 @@
 		78C673B0294DF50F006898C8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		78C673B3294DF594006898C8 /* UIView+addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviews.swift"; sourceTree = "<group>"; };
 		78C673B6294DF6A3006898C8 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		9B11E5A8295C30090051F8E9 /* AnnounceViewController_Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnounceViewController_Notice.swift; sourceTree = "<group>"; };
 		B81E4E692953E6BE005F8AA3 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		B81E4E6D29551865005F8AA3 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		B81E4E6F29551870005F8AA3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				78C6739A294DEC27006898C8 /* AnnounceViewController.swift */,
+				9B11E5A8295C30090051F8E9 /* AnnounceViewController_Notice.swift */,
 			);
 			path = AnnounceVC;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B11E5A9295C30090051F8E9 /* AnnounceViewController_Notice.swift in Sources */,
 				B8C6125E2950A76F00169259 /* ModifyViewController.swift in Sources */,
 				7886DCB8294DD81100D77AEE /* MainViewController.swift in Sources */,
 				7886DCB4294DD81100D77AEE /* AppDelegate.swift in Sources */,
