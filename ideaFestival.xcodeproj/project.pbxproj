@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07F2B392295C40FA0010CE4E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F2B391295C40FA0010CE4E /* LoginViewController.swift */; };
+		07F2B394295C410D0010CE4E /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F2B393295C410D0010CE4E /* SignupViewController.swift */; };
+		07F2B396295C411C0010CE4E /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F2B395295C411C0010CE4E /* ChoiceViewController.swift */; };
 		782ABFBB29508CB100A8D6AC /* Adelle_BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 782ABFAF29508CB100A8D6AC /* Adelle_BoldItalic.otf */; };
 		782ABFBC29508CB100A8D6AC /* Adelle_HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 782ABFB029508CB100A8D6AC /* Adelle_HeavyItalic.otf */; };
 		782ABFBD29508CB100A8D6AC /* Adelle_Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 782ABFB129508CB100A8D6AC /* Adelle_Heavy.otf */; };
@@ -60,6 +63,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07F2B391295C40FA0010CE4E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		07F2B393295C410D0010CE4E /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		07F2B395295C411C0010CE4E /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
 		782ABFAF29508CB100A8D6AC /* Adelle_BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Adelle_BoldItalic.otf; sourceTree = "<group>"; };
 		782ABFB029508CB100A8D6AC /* Adelle_HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Adelle_HeavyItalic.otf; sourceTree = "<group>"; };
 		782ABFB129508CB100A8D6AC /* Adelle_Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Adelle_Heavy.otf; sourceTree = "<group>"; };
@@ -125,6 +131,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07F2B38F295C40C10010CE4E /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				07F2B391295C40FA0010CE4E /* LoginViewController.swift */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		07F2B390295C40D60010CE4E /* SignupVC */ = {
+			isa = PBXGroup;
+			children = (
+				07F2B393295C410D0010CE4E /* SignupViewController.swift */,
+				07F2B395295C411C0010CE4E /* ChoiceViewController.swift */,
+			);
+			path = SignupVC;
+			sourceTree = "<group>";
+		};
 		7886DCA7294DD81100D77AEE = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +253,8 @@
 		78C673A2294DF0B8006898C8 /* Presentaion */ = {
 			isa = PBXGroup;
 			children = (
+				07F2B38F295C40C10010CE4E /* LoginVC */,
+				07F2B390295C40D60010CE4E /* SignupVC */,
 				7886DCD3294DE76300D77AEE /* MainVC */,
 				B81E4E622951CEAF005F8AA3 /* ProfileVC */,
 				78C3FF0729557ABF00C10F62 /* HomeVC */,
@@ -450,13 +475,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07F2B392295C40FA0010CE4E /* LoginViewController.swift in Sources */,
 				9B11E5A9295C30090051F8E9 /* AnnounceViewController_Notice.swift in Sources */,
 				B8C6125E2950A76F00169259 /* ModifyViewController.swift in Sources */,
 				7886DCB8294DD81100D77AEE /* MainViewController.swift in Sources */,
 				7886DCB4294DD81100D77AEE /* AppDelegate.swift in Sources */,
 				78C6739B294DEC27006898C8 /* AnnounceViewController.swift in Sources */,
 				78C3FF0929557ACE00C10F62 /* HomeViewController.swift in Sources */,
+				07F2B396295C411C0010CE4E /* ChoiceViewController.swift in Sources */,
 				78C673AE294DF435006898C8 /* ColorSystem.swift in Sources */,
+				07F2B394295C410D0010CE4E /* SignupViewController.swift in Sources */,
 				78C673B1294DF50F006898C8 /* BaseViewController.swift in Sources */,
 				78C6739D294DEC5D006898C8 /* ProfileViewController.swift in Sources */,
 				78C3FF0D29557B0900C10F62 /* CounselorProfileViewController.swift in Sources */,
