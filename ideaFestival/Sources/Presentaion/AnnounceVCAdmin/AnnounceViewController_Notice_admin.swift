@@ -1,14 +1,14 @@
 import UIKit
 
-class AnnounceViewController_Notice_1: UIViewController {
+class AnnounceViewController_Notice_admin: BaseViewController {
     
-    private let Notice1 = UIButton().then{
+    private let notice1UIButton = UIButton().then{
         $0.setTitle("안녕하세요 :)", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
-        $0.backgroundColor = .white
+        $0.setTitleColor(UIColor(rgb: 0x000000), for: .normal)
+        $0.backgroundColor = UIColor(rgb: 0xFFFFFF)
         $0.layer.shadowRadius = 6
         $0.layer.shadowOpacity = 0.6
-        $0.layer.shadowOffset = CGSize(width: 0, height: 4)
+        $0.layer.shadowOffset = CGSize.zero
         $0.layer.cornerRadius = 20
     }
     
@@ -20,7 +20,7 @@ class AnnounceViewController_Notice_1: UIViewController {
         notice.translatesAutoresizingMaskIntoConstraints = false
         let safeArea = view.safeAreaLayoutGuide
         notice.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 50).isActive = true
-        notice.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 0).isActive = true
+        notice.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 20).isActive = true
         notice.font = notice.font.withSize(30)
         notice.textColor = UIColor .black
         addSubView()
@@ -28,15 +28,15 @@ class AnnounceViewController_Notice_1: UIViewController {
     }
     
     func setUpView() {
-        self.Notice1.snp.makeConstraints {
+        self.notice1UIButton.snp.makeConstraints {
             $0.top.equalTo(self.view).offset(202)
-            $0.left.equalTo(self.view).offset(27)
+            $0.leading.equalTo(self.view).offset(27)
             $0.width.equalTo(337)
             $0.height.equalTo(500)
         }
     }
     
     private func addSubView() {
-        view.addSubview(Notice1)
+        view.addSubview(notice1UIButton)
     }
 }

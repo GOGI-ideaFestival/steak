@@ -2,15 +2,15 @@ import UIKit
 import Then
 import SnapKit
 
-class AnnounceViewController_Notice_3: UIViewController {
+class AnnounceViewController_Notice_3: BaseViewController {
     
-    private let Notice3 = UIButton().then {
+    private let notice3UIButton = UIButton().then {
         $0.setTitle("고기고기", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
-        $0.backgroundColor = .white
+        $0.setTitleColor(UIColor(rgb: 0x000000), for: .normal)
+        $0.backgroundColor = UIColor(rgb: 0xFFFFFF)
         $0.layer.shadowRadius = 6
         $0.layer.shadowOpacity = 0.6
-        $0.layer.shadowOffset = CGSize(width: 0, height: 4)
+        $0.layer.shadowOffset = CGSize.zero
         $0.layer.cornerRadius = 20
     }
     
@@ -30,7 +30,7 @@ class AnnounceViewController_Notice_3: UIViewController {
     }
     
     func setUpView() {
-        self.Notice3.snp.makeConstraints {
+        self.notice3UIButton.snp.makeConstraints {
             $0.top.equalTo(self.view).offset(202)
             $0.left.equalTo(self.view).offset(27)
             $0.width.equalTo(337)
@@ -39,6 +39,6 @@ class AnnounceViewController_Notice_3: UIViewController {
     }
     
     private func addSubView() {
-        view.addSubview(Notice3)
+        view.addSubview(notice3UIButton)
     }
 }

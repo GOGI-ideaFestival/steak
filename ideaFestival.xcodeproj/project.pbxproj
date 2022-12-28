@@ -45,10 +45,7 @@
 		78C673B1294DF50F006898C8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C673B0294DF50F006898C8 /* BaseViewController.swift */; };
 		78C673B4294DF594006898C8 /* UIView+addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C673B3294DF594006898C8 /* UIView+addSubviews.swift */; };
 		78C673B7294DF6A3006898C8 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C673B6294DF6A3006898C8 /* UIColor+Hex.swift */; };
-		9B11E57C295B16F30051F8E9 /* AnnounceViewController_Notice_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11E577295B16F30051F8E9 /* AnnounceViewController_Notice_3.swift */; };
-		9B11E57D295B16F30051F8E9 /* AnnounceViewController_Notice_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11E578295B16F30051F8E9 /* AnnounceViewController_Notice_2.swift */; };
-		9B11E57E295B16F30051F8E9 /* AnnounceViewController_Notice_4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11E579295B16F30051F8E9 /* AnnounceViewController_Notice_4.swift */; };
-		9B11E57F295B16F30051F8E9 /* AnnounceViewController_Notice_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11E57A295B16F30051F8E9 /* AnnounceViewController_Notice_1.swift */; };
+		9B11E57F295B16F30051F8E9 /* AnnounceViewController_Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11E57A295B16F30051F8E9 /* AnnounceViewController_Notice.swift */; };
 		9B11E580295B16F30051F8E9 /* AnnounceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11E57B295B16F30051F8E9 /* AnnounceViewController.swift */; };
 		B81E4E6A2953E6BE005F8AA3 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B81E4E692953E6BE005F8AA3 /* NotoSansKR-Regular.otf */; };
 		B81E4E6E29551865005F8AA3 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B81E4E6D29551865005F8AA3 /* Pretendard-Bold.otf */; };
@@ -94,10 +91,7 @@
 		78C673B0294DF50F006898C8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		78C673B3294DF594006898C8 /* UIView+addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addSubviews.swift"; sourceTree = "<group>"; };
 		78C673B6294DF6A3006898C8 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		9B11E577295B16F30051F8E9 /* AnnounceViewController_Notice_3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceViewController_Notice_3.swift; sourceTree = "<group>"; };
-		9B11E578295B16F30051F8E9 /* AnnounceViewController_Notice_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceViewController_Notice_2.swift; sourceTree = "<group>"; };
-		9B11E579295B16F30051F8E9 /* AnnounceViewController_Notice_4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceViewController_Notice_4.swift; sourceTree = "<group>"; };
-		9B11E57A295B16F30051F8E9 /* AnnounceViewController_Notice_1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceViewController_Notice_1.swift; sourceTree = "<group>"; };
+		9B11E57A295B16F30051F8E9 /* AnnounceViewController_Notice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceViewController_Notice.swift; sourceTree = "<group>"; };
 		9B11E57B295B16F30051F8E9 /* AnnounceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceViewController.swift; sourceTree = "<group>"; };
 		B81E4E692953E6BE005F8AA3 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		B81E4E6D29551865005F8AA3 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
@@ -188,11 +182,8 @@
 		78C3FF1029557B3000C10F62 /* AnnounceVC */ = {
 			isa = PBXGroup;
 			children = (
-				9B11E57A295B16F30051F8E9 /* AnnounceViewController_Notice_1.swift */,
-				9B11E578295B16F30051F8E9 /* AnnounceViewController_Notice_2.swift */,
-				9B11E577295B16F30051F8E9 /* AnnounceViewController_Notice_3.swift */,
-				9B11E579295B16F30051F8E9 /* AnnounceViewController_Notice_4.swift */,
 				9B11E57B295B16F30051F8E9 /* AnnounceViewController.swift */,
+				9B11E57A295B16F30051F8E9 /* AnnounceViewController_Notice.swift */,
 			);
 			path = AnnounceVC;
 			sourceTree = "<group>";
@@ -466,14 +457,11 @@
 				78C673AE294DF435006898C8 /* ColorSystem.swift in Sources */,
 				78C673B1294DF50F006898C8 /* BaseViewController.swift in Sources */,
 				78C6739D294DEC5D006898C8 /* ProfileViewController.swift in Sources */,
-				9B11E57D295B16F30051F8E9 /* AnnounceViewController_Notice_2.swift in Sources */,
-				9B11E57E295B16F30051F8E9 /* AnnounceViewController_Notice_4.swift in Sources */,
 				78C3FF0D29557B0900C10F62 /* CounselorProfileViewController.swift in Sources */,
 				7886DCBE294DD81100D77AEE /* ideaFestival.xcdatamodeld in Sources */,
-				9B11E57C295B16F30051F8E9 /* AnnounceViewController_Notice_3.swift in Sources */,
 				78C3FF0B29557AE100C10F62 /* CounselorSelectViewController.swift in Sources */,
 				7886DCB6294DD81100D77AEE /* SceneDelegate.swift in Sources */,
-				9B11E57F295B16F30051F8E9 /* AnnounceViewController_Notice_1.swift in Sources */,
+				9B11E57F295B16F30051F8E9 /* AnnounceViewController_Notice.swift in Sources */,
 				78C673B7294DF6A3006898C8 /* UIColor+Hex.swift in Sources */,
 				78C673A5294DF286006898C8 /* FontSystem.swift in Sources */,
 				9B11E580295B16F30051F8E9 /* AnnounceViewController.swift in Sources */,
