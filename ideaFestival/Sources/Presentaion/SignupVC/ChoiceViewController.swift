@@ -3,7 +3,7 @@ import SnapKit
 import Then
 
 class ChoiceViewController: BaseViewController{
-    
+
     private let userSelectUIButton = UIButton().then{
         $0.backgroundColor = UIColor(rgb: 0xFFFFFF)
         $0.layer.cornerRadius = 103 / 2
@@ -40,10 +40,10 @@ class ChoiceViewController: BaseViewController{
     
     override func addView(){
         view.addSubviews(
-        userSelectUIButton,
-        ownerSelectUIButton,
-        userUILabel,
-        ownerUILabel
+            userSelectUIButton,
+            ownerSelectUIButton,
+            userUILabel,
+            ownerUILabel
         )
     }
     

@@ -33,7 +33,6 @@
 		7886DCB4294DD81100D77AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7886DCB3294DD81100D77AEE /* AppDelegate.swift */; };
 		7886DCB6294DD81100D77AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7886DCB5294DD81100D77AEE /* SceneDelegate.swift */; };
 		7886DCB8294DD81100D77AEE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7886DCB7294DD81100D77AEE /* MainViewController.swift */; };
-		7886DCBE294DD81100D77AEE /* ideaFestival.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7886DCBC294DD81100D77AEE /* ideaFestival.xcdatamodeld */; };
 		7886DCC0294DD81200D77AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7886DCBF294DD81200D77AEE /* Assets.xcassets */; };
 		7886DCC3294DD81200D77AEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7886DCC1294DD81200D77AEE /* LaunchScreen.storyboard */; };
 		7886DCD6294DE86300D77AEE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7886DCD5294DE86300D77AEE /* SnapKit */; };
@@ -59,6 +58,7 @@
 		B81E4E7829551FE1005F8AA3 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B81E4E7729551FE1005F8AA3 /* Inter-Regular.otf */; };
 		B81E4E7A29551FEC005F8AA3 /* Inter-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = B81E4E7929551FEC005F8AA3 /* Inter-ExtraLight.otf */; };
 		B81E4E7E2955218A005F8AA3 /* JainiPurva-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B81E4E7D2955218A005F8AA3 /* JainiPurva-Regular.otf */; };
+		B81E4ED2295BC733005F8AA3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B81E4ED0295BC733005F8AA3 /* Model.xcdatamodeld */; };
 		B8C6125E2950A76F00169259 /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6125D2950A76F00169259 /* ModifyViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,7 +83,6 @@
 		7886DCB3294DD81100D77AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7886DCB5294DD81100D77AEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7886DCB7294DD81100D77AEE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		7886DCBD294DD81100D77AEE /* ideaFestival.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ideaFestival.xcdatamodel; sourceTree = "<group>"; };
 		7886DCBF294DD81200D77AEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7886DCC2294DD81200D77AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7886DCC4294DD81200D77AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +107,9 @@
 		B81E4E7729551FE1005F8AA3 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
 		B81E4E7929551FEC005F8AA3 /* Inter-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.otf"; sourceTree = "<group>"; };
 		B81E4E7D2955218A005F8AA3 /* JainiPurva-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JainiPurva-Regular.otf"; sourceTree = "<group>"; };
+		B81E4ED1295BC733005F8AA3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B81E4ED3295C3936005F8AA3 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B81E4ED7295C398E005F8AA3 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B8C6125D2950A76F00169259 /* ModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,7 +172,6 @@
 				78C6739F294DF052006898C8 /* Support */,
 				78C673A0294DF066006898C8 /* Sources */,
 				78C673A8294DF2CE006898C8 /* Resources */,
-				7886DCBC294DD81100D77AEE /* ideaFestival.xcdatamodeld */,
 			);
 			path = ideaFestival;
 			sourceTree = "<group>";
@@ -215,8 +216,9 @@
 			isa = PBXGroup;
 			children = (
 				78C673AF294DF500006898C8 /* Base */,
-				78C673B2294DF56B006898C8 /* UIView */,
 				78C673B5294DF65E006898C8 /* UIColor */,
+				78C673B2294DF56B006898C8 /* UIView */,
+				B81E4ECF295BC721005F8AA3 /* CoreData */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -233,6 +235,8 @@
 		78C673A0294DF066006898C8 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B81E4ED3295C3936005F8AA3 /* User+CoreDataClass.swift */,
+				B81E4ED7295C398E005F8AA3 /* User+CoreDataProperties.swift */,
 				78C673A1294DF096006898C8 /* Application */,
 				78C673A2294DF0B8006898C8 /* Presentaion */,
 				78C673A3294DF0FD006898C8 /* DesignSystem */,
@@ -367,6 +371,14 @@
 			path = ProfileVC;
 			sourceTree = "<group>";
 		};
+		B81E4ECF295BC721005F8AA3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B81E4ED0295BC733005F8AA3 /* Model.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -487,8 +499,8 @@
 				07F2B394295C410D0010CE4E /* SignupViewController.swift in Sources */,
 				78C673B1294DF50F006898C8 /* BaseViewController.swift in Sources */,
 				78C6739D294DEC5D006898C8 /* ProfileViewController.swift in Sources */,
+				B81E4ED2295BC733005F8AA3 /* Model.xcdatamodeld in Sources */,
 				78C3FF0D29557B0900C10F62 /* CounselorProfileViewController.swift in Sources */,
-				7886DCBE294DD81100D77AEE /* ideaFestival.xcdatamodeld in Sources */,
 				78C3FF0B29557AE100C10F62 /* CounselorSelectViewController.swift in Sources */,
 				7886DCB6294DD81100D77AEE /* SceneDelegate.swift in Sources */,
 				78C673B7294DF6A3006898C8 /* UIColor+Hex.swift in Sources */,
@@ -785,13 +797,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		7886DCBC294DD81100D77AEE /* ideaFestival.xcdatamodeld */ = {
+		B81E4ED0295BC733005F8AA3 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7886DCBD294DD81100D77AEE /* ideaFestival.xcdatamodel */,
+				B81E4ED1295BC733005F8AA3 /* Model.xcdatamodel */,
 			);
-			currentVersion = 7886DCBD294DD81100D77AEE /* ideaFestival.xcdatamodel */;
-			path = ideaFestival.xcdatamodeld;
+			currentVersion = B81E4ED1295BC733005F8AA3 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

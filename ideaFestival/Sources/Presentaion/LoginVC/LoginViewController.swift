@@ -3,7 +3,7 @@ import SnapKit
 import Then
 
 class LoginViewController: BaseViewController {
-
+    
     private let backUIBarButtonItem = UIBarButtonItem()
     
     private let emailUITextField = UITextField().then{
@@ -46,7 +46,7 @@ class LoginViewController: BaseViewController {
         self.navigationItem.backBarButtonItem = backUIBarButtonItem
         backUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
     }
-
+    
     override func addView() {
         view.addSubviews(
             emailUITextField,
@@ -55,7 +55,7 @@ class LoginViewController: BaseViewController {
             signupUIButton
         )
     }
- 
+    
     override func setLayout(){
         self.emailUITextField.snp.makeConstraints{
             $0.top.equalTo(self.view).offset(313)
@@ -83,7 +83,7 @@ class LoginViewController: BaseViewController {
         }
     }
     
-     private func emptyField(){
+    private func emptyField(){
         let completed = UIAlertController(title: "입력되지않은 칸이 있습니다", message: "빈 칸이 없도록 기입해주세요", preferredStyle: .alert)
         completed.addAction(UIAlertAction(title: "확인", style: .default){_ in
         })

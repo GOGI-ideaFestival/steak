@@ -1,9 +1,10 @@
 import SnapKit
 import UIKit
 import Then
+import CoreData
 
 class SignupViewController: BaseViewController{
-
+    
     private let backUIBarButtonItem = UIBarButtonItem()
     
     private let emailUITextField = UITextField().then{
@@ -61,16 +62,16 @@ class SignupViewController: BaseViewController{
         self.navigationItem.backBarButtonItem = backUIBarButtonItem
         backUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
     }
-
-       override func addView(){
-           view.addSubviews(
-           emailUITextField,
-           pwdUITextField,
-           pwdCheckUITextField,
-           nicknameUITextField,
-           selectPositionUIButton
-           )
-       }
+    
+    override func addView(){
+        view.addSubviews(
+            emailUITextField,
+            pwdUITextField,
+            pwdCheckUITextField,
+            nicknameUITextField,
+            selectPositionUIButton
+        )
+    }
     
     override func setLayout(){
         self.emailUITextField.snp.makeConstraints{
@@ -99,13 +100,13 @@ class SignupViewController: BaseViewController{
         }
     }
     
-    
     @objc private func goSelect(){
         self.TFdidChanged()
         if emailFormatCheck() == false{
             self.wrongEmailAlert()
         }
         self.pwdFormatCheck()
+        
         let controller = ChoiceViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
