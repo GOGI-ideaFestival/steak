@@ -3,19 +3,19 @@ import SnapKit
 import Then
 
 final class CounselorSelectViewController: BaseViewController{
-
+    
     private let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-
+    
     private let firstCounselorExplain: String = "1205 김주은입니당"
     private let secondCounselorExplain: String = "1204 박준서입니당"
     private let thirdCounselorExplain: String = "1209 신아인입니당"
     private let fourthCounselorExplain: String = "1308 박건우입니당"
-
+    
     private let firstCounselorSongRecommendation: String = "괜찮아요 - 비투비"
     private let secondCounselorSongRecommendation: String = "마치 - Love is a magic"
     private let thirdCounselorSongRecommendation: String = "슬퍼하지마 - 구원찬"
     private let fourthCounselorSongRecommendation: String = "자격지심 - 비오"
-
+    
     private let firstCounselorSongRecommendationURL: String
     = "https://www.youtube.com/watch?v=SNpuKLfv1EE"
     private let secondCounselorSongRecommendationURL: String
@@ -189,13 +189,13 @@ final class CounselorSelectViewController: BaseViewController{
         secondCounselorUILabel.text = secondCounselorSelectName
         thirdCounselorUILabel.text = thirdCounselorSelectName
         fourthCounselorUILabel.text = fourthCounselorSelectName
-
+        
         firstCounselorExplainUILabel.text = firstCounselorExplain
         secondCounselorExplainUILabel.text = secondCounselorExplain
         thirdCounselorExplainUILabel.text = thirdCounselorExplain
         fourthCounselorExplainUILabel.text = fourthCounselorExplain
     }
-
+    
     override func addView() {
         view.addSubviews(
             firstRectangleUIView,
@@ -240,7 +240,7 @@ final class CounselorSelectViewController: BaseViewController{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     @objc private func firstCounselerSelectUIButtonDidTap(_ sender: UIButton){
         counselorName = firstCounselorSelectName
         counselorUIImage = firstCounselorSelectUIImage

@@ -29,7 +29,7 @@ final class HomeViewController: BaseViewController {
     private let todayUILabel = UILabel().then{
         $0.text = "Today"
         $0.textColor = UIColor(rgb: 0x856752)
-        $0.font = UIFont.ideaFestival(size: 60, family: .bold)
+        $0.font = UIFont(name: "Pretendard-Bold", size: 60)
         $0.textAlignment = .center
     }
     
@@ -39,7 +39,7 @@ final class HomeViewController: BaseViewController {
         var current_date_string = formatter.string(from: Date())
         $0.text = current_date_string
         $0.textColor = UIColor(rgb: 0x000000)
-        $0.font = UIFont.ideaFestival(size: 20, family: .light)
+        $0.font = UIFont(name: "AppleSDGothicNeo-Light", size: 20)
         $0.textAlignment = .center
     }
     
@@ -47,61 +47,71 @@ final class HomeViewController: BaseViewController {
         $0.backgroundColor = (UIColor(rgb: 0xF8F5F2))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
+        $0.layer.borderWidth = 1
+        var tocg = UIColor(rgb: 0xF6EBDF)
+        $0.layer.borderColor = tocg.cgColor
+    }
+    
+    private let reservationTimeFrameUIView = UIView().then {
+        $0.backgroundColor = UIColor(rgb: 0xE3D4C3)
+        $0.layer.cornerRadius = 5
     }
     
     private let reservationTimeUILabel = UILabel().then{
         $0.textColor = UIColor(rgb: 0x796551)
         $0.text = "20:00"
         $0.textAlignment = .center
-        $0.font = UIFont.ideaFestival(size: 16, family: .semiBold)
-        $0.backgroundColor = UIColor(rgb: 0xE3D4C3)
+        $0.font = UIFont(name: "Pretendard-SemiBold", size: 16)
     }
     
     private let reservationAnnouncementUILabel = UILabel().then{
         $0.textColor = UIColor(rgb: 0x937A75)
         $0.text = "name과의 상담이 예약되어있어요!\n🕐약속 시간을 잘 지켜주세요🙂"
         $0.numberOfLines = 3
-        $0.font = UIFont.ideaFestival(size: 16, family: .semiBold)
+        $0.font = UIFont(name: "NotoSans-SemiBold", size: 16)
     }
     
     private let counselCancelUIButton = UIButton().then{
         $0.backgroundColor = UIColor(rgb: 0xF8F5F2)
         $0.setTitle("상담 취소하기 ->", for: .normal)
         $0.setTitleColor(UIColor(rgb: 0x937A75), for: .normal)
-        $0.titleLabel?.font = UIFont.ideaFestival(size: 12, family: .light)
+        $0.titleLabel?.font = UIFont(name: "Inter-Regular", size: 12)
     }
     
     private let secondRectangleUIView = UIView().then{
         $0.backgroundColor = (UIColor(rgb: 0xEADDCD))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let counselorRoomUILabel = UILabel().then{
         $0.textColor = UIColor(rgb: 0x937A75)
         $0.text = "상담가's room"
-        $0.font = UIFont.ideaFestival(size: 18, family: .semiBold)
+        $0.font = UIFont(name: "NotoSans-SemiBold", size: 18)
     }
     
     private let enterUIButton = UIButton().then{
         $0.backgroundColor = UIColor(rgb: 0xEADDCD)
         $0.setTitle("입장하기 ->", for: .normal)
         $0.setTitleColor(UIColor(rgb: 0x9C8778), for: .normal)
-        $0.titleLabel?.font = UIFont.ideaFestival(size: 9, family: .light)
+        $0.titleLabel?.font = UIFont(name: "Pretendard-Medium", size: 9)
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 5
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let counselingReservationUILabel = UILabel().then{
         $0.textColor = UIColor(rgb: 0x000000)
         $0.text = "Counseling Reservation"
-        $0.font = UIFont.ideaFestival(size: 12, family: .light)
+        $0.font = UIFont(name: "Adelle-Regular", size: 12)
     }
     
     private let counselUIImageView = UIImageView().then{
@@ -110,66 +120,62 @@ final class HomeViewController: BaseViewController {
     
     private let counselingReservationUIButton = UIButton().then{
         $0.backgroundColor = UIColor(rgb: 0xF1E0CE)
-        $0.titleLabel?.font = UIFont.ideaFestival(size: 9, family: .light)
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
         $0.addTarget(self, action: #selector(counselingReservationUIButtonDidTap), for: .touchUpInside)
     }
     
     private let firstCounselorUIImageView = UIImageView().then{
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 0.5
-        $0.layer.cornerRadius = 32
+        $0.layer.cornerRadius = 30
         $0.clipsToBounds = true
-        $0.layer.borderColor = UIColor.black.cgColor
     }
     private let firstCounselorNameUILabel = UILabel().then{
-        $0.textColor = UIColor(rgb: 0x937A75)
-        $0.font = UIFont.ideaFestival(size: 18, family: .semiBold)
+        $0.textColor = UIColor(rgb: 0x000000)
+        $0.font = UIFont(name: "Intel-Medium", size: 15)
         $0.textAlignment = .center
     }
     
     private let secondCounselorUIImageView = UIImageView().then{
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 0.5
-        $0.layer.cornerRadius = 32
+        $0.layer.cornerRadius = 30
         $0.clipsToBounds = true
-        $0.layer.borderColor = UIColor.black.cgColor
     }
     
     private let secondCounselorNameUILabel = UILabel().then{
-        $0.textColor = UIColor(rgb: 0x937A75)
-        $0.font = UIFont.ideaFestival(size: 18, family: .semiBold)
+        $0.textColor = UIColor(rgb: 0x000000)
+        $0.font = UIFont(name: "Intel-Medium", size: 15)
         $0.textAlignment = .center
     }
     
     private let thirdCounselerUIImageView = UIImageView().then{
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 0.5
-        $0.layer.cornerRadius = 32
+        $0.layer.cornerRadius = 30
         $0.clipsToBounds = true
-        $0.layer.borderColor = UIColor.black.cgColor
     }
     
     private let thirdCounselorNameUILabel = UILabel().then{
-        $0.textColor = UIColor(rgb: 0x937A75)
-        $0.font = UIFont.ideaFestival(size: 18, family: .semiBold)
+        $0.textColor = UIColor(rgb: 0x000000)
+        $0.font = UIFont(name: "Intel-Medium", size: 15)
         $0.textAlignment = .center
     }
     
     private let fourthCounselerUIImageView = UIImageView().then{
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 0.5
-        $0.layer.cornerRadius = 32
+        $0.layer.cornerRadius = 30
         $0.clipsToBounds = true
-        $0.layer.borderColor = UIColor.black.cgColor
     }
     
     private let fourthCounselorNameUILabel = UILabel().then{
-        $0.textColor = UIColor(rgb: 0x937A75)
-        $0.font = UIFont.ideaFestival(size: 18, family: .semiBold)
+        $0.textColor = UIColor(rgb: 0x000000)
+        $0.font = UIFont(name: "Intel-Medium", size: 15)
         $0.textAlignment = .center
     }
     
@@ -236,40 +242,40 @@ final class HomeViewController: BaseViewController {
     override func setLayout() {
         self.todayUILabel.snp.makeConstraints{
             $0.top.equalTo(self.view).offset(113)
-            $0.leading.trailing.equalTo(self.view).inset(106)
+            $0.centerX.equalToSuperview()
         }
         self.dateUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(193)
-            $0.leading.trailing.equalTo(self.view).inset(122)
+            $0.top.equalTo(self.todayUILabel).offset(8)
+            $0.centerX.equalToSuperview()
         }
         self.firstRectangleUIView.snp.makeConstraints{
             $0.top.equalTo(self.view).offset(263)
-            $0.bottom.equalTo(self.view).inset(419)
             $0.leading.trailing.equalTo(self.view).inset(25)
+            $0.height.equalTo(162)
+        }
+        self.reservationTimeFrameUIView.snp.makeConstraints {
+            $0.top.equalTo(self.firstRectangleUIView.snp.top).inset(20)
+            $0.leading.equalTo(self.firstRectangleUIView.snp.leading).inset(21)
+            $0.height.equalTo(29)
         }
         self.reservationTimeUILabel.snp.makeConstraints{
-            $0.top.equalTo(firstRectangleUIView.snp.top).offset(20)
-            $0.bottom.equalTo(firstRectangleUIView.snp.bottom).inset(113)
-            $0.leading.equalTo(firstRectangleUIView).offset(20)
-            $0.trailing.equalTo(firstRectangleUIView).inset(259)
+            $0.centerX.equalTo(self.reservationTimeFrameUIView.snp.centerX)
+            $0.centerY.equalTo(self.reservationTimeFrameUIView.snp.centerY)
         }
         self.reservationAnnouncementUILabel.snp.makeConstraints{
-            $0.top.equalTo(firstRectangleUIView.snp.top).offset(56)
-            $0.bottom.equalTo(firstRectangleUIView.snp.bottom).inset(56)
-            $0.leading.equalTo(firstRectangleUIView).offset(20)
-            $0.trailing.equalTo(firstRectangleUIView).inset(79)
+            $0.top.equalTo(self.reservationTimeFrameUIView.snp.bottom).offset(7)
+            $0.leading.equalTo(self.firstRectangleUIView.snp.leading).offset(21)
+            $0.trailing.equalTo(self.firstRectangleUIView.snp.trailing).inset(78)
         }
         self.counselCancelUIButton.snp.makeConstraints{
-            $0.top.equalTo(firstRectangleUIView.snp.top).offset(132)
-            $0.bottom.equalTo(firstRectangleUIView.snp.bottom).inset(15)
-            $0.leading.equalTo(firstRectangleUIView).offset(20)
-            $0.trailing.equalTo(firstRectangleUIView).inset(236)
+            $0.top.equalTo(self.reservationAnnouncementUILabel.snp.bottom).offset(26)
+            $0.leading.equalTo(self.firstRectangleUIView).offset(21)
+            $0.height.equalTo(15)
         }
         self.secondRectangleUIView.snp.makeConstraints{
-            $0.top.equalTo(firstRectangleUIView.snp.bottom).offset(28)
-            $0.bottom.equalTo(self.view).inset(299)
-            $0.leading.equalTo(firstRectangleUIView.snp.leading)
-            $0.trailing.equalTo(firstRectangleUIView.snp.trailing)
+            $0.top.equalTo(self.firstRectangleUIView.snp.bottom).offset(28)
+            $0.leading.trailing.equalTo(self.view).inset(25)
+            $0.height.equalTo(92)
         }
         self.counselorRoomUILabel.snp.makeConstraints{
             $0.top.equalTo(secondRectangleUIView.snp.top).offset(18)

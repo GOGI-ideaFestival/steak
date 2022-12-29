@@ -3,7 +3,7 @@ import SnapKit
 import Then
 
 final class MainViewController: UITabBarController {
-    
+ 
     private let profileVC = ProfileViewController().then{
         $0.title = ""
         $0.tabBarItem.image = UIImage(systemName: "person.circle")
@@ -23,11 +23,12 @@ final class MainViewController: UITabBarController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .white
+        
         let navigationProfile = UINavigationController(rootViewController: profileVC)
         let navigationHome = UINavigationController(rootViewController: homeVC)
         let navigationAnnounce = UINavigationController(rootViewController: announceVC)
-        
-        view.backgroundColor = .white
         
         setViewControllers([navigationProfile, navigationHome, navigationAnnounce], animated: false)
     }

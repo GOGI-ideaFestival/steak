@@ -194,15 +194,15 @@ final class CounselorProfileViewController: BaseViewController {
         seventhReservationTime = seventhReservationAvailableTime
         
         let vc = ReservationViewController(
-        counselorReservatonUIImage: counselorReservationUIImage,
-        counselor: counselor,
-        firstReservationTime: firstReservationTime,
-        secondReservationTime: secondReservationTime,
-        thirdReservationTime: thirdReservationTime,
-        fourthReservationTime: fourthReservationTime,
-        fifthReservationTime: fifthReservationTime,
-        sixthReservationTime: sixthReservationTime,
-        seventhReservationTime: seventhReservationTime)
+            counselorReservatonUIImage: counselorReservationUIImage,
+            counselor: counselor,
+            firstReservationTime: firstReservationTime,
+            secondReservationTime: secondReservationTime,
+            thirdReservationTime: thirdReservationTime,
+            fourthReservationTime: fourthReservationTime,
+            fifthReservationTime: fifthReservationTime,
+            sixthReservationTime: sixthReservationTime,
+            seventhReservationTime: seventhReservationTime)
         navigationController?.pushViewController(vc, animated: true)
     }
     override func setLayout() {

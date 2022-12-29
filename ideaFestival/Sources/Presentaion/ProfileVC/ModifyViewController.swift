@@ -1,8 +1,11 @@
 import UIKit
+import CoreData
 import SnapKit
 import Then
 
 class ModifyViewController: BaseViewController{
+    
+    private var profileImage: UIImage?
     
     let UIimagePickerController = UIImagePickerController()
     
@@ -35,15 +38,17 @@ class ModifyViewController: BaseViewController{
         $0.textColor = UIColor(rgb: 0x000000)
         $0.backgroundColor = UIColor(rgb: 0xEFEFEF)
         $0.layer.cornerRadius = 20
-        $0.font = .ideaFestival(size: 15, family: .regular)
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 15)
         $0.textAlignment = .center
         $0.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(goToPop))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(goToChange))
         navigationItem.rightBarButtonItem?.tintColor = UIColor(rgb: 0x6A6868)
+        fetchContact()
+        profileUIImageView.image = profileImage
     }
     
     override func addView() {
@@ -85,6 +90,21 @@ class ModifyViewController: BaseViewController{
         }
     }
     
+    func fetchContact() {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+          let result = try context.fetch(fetchRequest)
+          for data in result as! [NSManagedObject] {
+            let aaa = (data.value(forKey: "profileImage") as! Data)
+            profileImage = UIImage(data: aaa)
+          }
+        } catch let error as NSError {
+          print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
     @objc private func changeProfileUIImageView(_ sender: UIButton) {
         self.UIimagePickerController.delegate = self
         self.UIimagePickerController.sourceType = .photoLibrary
@@ -101,7 +121,11 @@ class ModifyViewController: BaseViewController{
         }
     }
     
-    @objc private func goToPop(_ sender: UIButton) {
+    @objc private func goToChange(_ sender: UIButton) {
+        let save_nickname: String = changeNicknameUITextField.text ?? "익명"
+        if save_nickname != "" {
+            UserDefaults.standard.set(save_nickname, forKey: "nickname")
+        }
         navigationController?.popViewController(animated: true)
     }
 }
@@ -110,6 +134,18 @@ extension ModifyViewController: UIImagePickerControllerDelegate & UINavigationCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileUIImageView.image = image
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let jpegImageData = image.jpegData(compressionQuality: 1.0)
+            //            let pngImageData  = image.pngData()
+            let User =  NSEntityDescription.entity(forEntityName: "User", in: context)!
+            let image = NSManagedObject(entity: User, insertInto: context)
+            image.setValue(jpegImageData, forKeyPath: "profileImage")
+            do {
+                try context.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }

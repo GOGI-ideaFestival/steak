@@ -34,12 +34,12 @@ class AnnounceViewController_Notice: BaseViewController {
         $0.textColor = UIColor(rgb: 0x000000)
         $0.numberOfLines = 0
     }
- 
+    
     override func addView() {
         view.addSubviews(
-        noticeTitleUILabel,
-        noticeContentsFrameUIView,
-        noticeContentsUILabel
+            noticeTitleUILabel,
+            noticeContentsFrameUIView,
+            noticeContentsUILabel
         )
     }
     
