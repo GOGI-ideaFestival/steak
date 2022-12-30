@@ -69,7 +69,7 @@ final class HomeViewController: BaseViewController {
     
     private let reservationAnnouncementUILabel = UILabel().then{
         $0.textColor = UIColor(rgb: 0x937A75)
-        $0.text = "name과의 상담이 예약되어있어요!\n🕐약속 시간을 잘 지켜주세요🙂"
+        $0.text = "name과의 상담이 예약되어있어요!\n🕐 약속 시간을 잘 지켜주세요 🙂"
         $0.numberOfLines = 3
         $0.font = UIFont(name: "NotoSans-SemiBold", size: 16)
     }
@@ -97,6 +97,9 @@ final class HomeViewController: BaseViewController {
     }
     
     private let enterUIButton = UIButton().then{
+        var toGoCGColor = UIColor(red: 147/255, green: 122/255, blue: 117/255, alpha: 0.5)
+        $0.layer.borderColor = toGoCGColor.cgColor
+        $0.layer.borderWidth = 0.5
         $0.backgroundColor = UIColor(rgb: 0xEADDCD)
         $0.setTitle("입장하기 ->", for: .normal)
         $0.setTitleColor(UIColor(rgb: 0x9C8778), for: .normal)
@@ -129,11 +132,13 @@ final class HomeViewController: BaseViewController {
     }
     
     private let firstCounselorUIImageView = UIImageView().then{
-        $0.layer.borderColor = UIColor.black.cgColor
+        var toGoCGColor = UIColor(rgb: 0xF8F5F2)
+        $0.layer.borderColor = toGoCGColor.cgColor
         $0.layer.borderWidth = 0.5
         $0.layer.cornerRadius = 30
         $0.clipsToBounds = true
     }
+    
     private let firstCounselorNameUILabel = UILabel().then{
         $0.textColor = UIColor(rgb: 0x000000)
         $0.font = UIFont(name: "Intel-Medium", size: 15)
@@ -141,7 +146,8 @@ final class HomeViewController: BaseViewController {
     }
     
     private let secondCounselorUIImageView = UIImageView().then{
-        $0.layer.borderColor = UIColor.black.cgColor
+        var toGoCGColor = UIColor(rgb: 0xF8F5F2)
+        $0.layer.borderColor = toGoCGColor.cgColor
         $0.layer.borderWidth = 0.5
         $0.layer.cornerRadius = 30
         $0.clipsToBounds = true
@@ -153,8 +159,9 @@ final class HomeViewController: BaseViewController {
         $0.textAlignment = .center
     }
     
-    private let thirdCounselerUIImageView = UIImageView().then{
-        $0.layer.borderColor = UIColor.black.cgColor
+    private let thirdCounselorUIImageView = UIImageView().then{
+        var toGoCGColor = UIColor(rgb: 0xF8F5F2)
+        $0.layer.borderColor = toGoCGColor.cgColor
         $0.layer.borderWidth = 0.5
         $0.layer.cornerRadius = 30
         $0.clipsToBounds = true
@@ -166,8 +173,9 @@ final class HomeViewController: BaseViewController {
         $0.textAlignment = .center
     }
     
-    private let fourthCounselerUIImageView = UIImageView().then{
-        $0.layer.borderColor = UIColor.black.cgColor
+    private let fourthCounselorUIImageView = UIImageView().then{
+        var toGoCGColor = UIColor(rgb: 0xF8F5F2)
+        $0.layer.borderColor = toGoCGColor.cgColor
         $0.layer.borderWidth = 0.5
         $0.layer.cornerRadius = 30
         $0.clipsToBounds = true
@@ -182,8 +190,8 @@ final class HomeViewController: BaseViewController {
     override func setup() {
         firstCounselorUIImageView.image = firstCounselorUIImage
         secondCounselorUIImageView.image = secondCounselorUIImage
-        thirdCounselerUIImageView.image = thirdCounselorUIImage
-        fourthCounselerUIImageView.image = fourthCounselorUIImage
+        thirdCounselorUIImageView.image = thirdCounselorUIImage
+        fourthCounselorUIImageView.image = fourthCounselorUIImage
         
         firstCounselorNameUILabel.text = firstCounselorName
         secondCounselorNameUILabel.text = secondCounselorName
@@ -196,6 +204,7 @@ final class HomeViewController: BaseViewController {
             todayUILabel,
             dateUILabel,
             firstRectangleUIView,
+            reservationTimeFrameUIView,
             reservationTimeUILabel,
             reservationAnnouncementUILabel,
             counselCancelUIButton,
@@ -207,8 +216,8 @@ final class HomeViewController: BaseViewController {
             counselingReservationUIButton,
             firstCounselorUIImageView,
             secondCounselorUIImageView,
-            thirdCounselerUIImageView,
-            fourthCounselerUIImageView,
+            thirdCounselorUIImageView,
+            fourthCounselorUIImageView,
             firstCounselorNameUILabel,
             secondCounselorNameUILabel,
             thirdCounselorNameUILabel,
@@ -243,24 +252,28 @@ final class HomeViewController: BaseViewController {
         self.todayUILabel.snp.makeConstraints{
             $0.top.equalTo(self.view).offset(113)
             $0.centerX.equalToSuperview()
+            $0.height.equalTo(72)
         }
         self.dateUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.todayUILabel).offset(8)
+            $0.top.equalTo(self.todayUILabel.snp.bottom).offset(8)
             $0.centerX.equalToSuperview()
+            $0.height.equalTo(33)
         }
         self.firstRectangleUIView.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(263)
+            $0.top.equalTo(self.dateUILabel.snp.bottom).offset(37)
             $0.leading.trailing.equalTo(self.view).inset(25)
             $0.height.equalTo(162)
         }
         self.reservationTimeFrameUIView.snp.makeConstraints {
             $0.top.equalTo(self.firstRectangleUIView.snp.top).inset(20)
-            $0.leading.equalTo(self.firstRectangleUIView.snp.leading).inset(21)
+            $0.leading.equalTo(self.firstRectangleUIView.snp.leading).offset(21)
+            $0.width.equalTo(61)
             $0.height.equalTo(29)
         }
         self.reservationTimeUILabel.snp.makeConstraints{
             $0.centerX.equalTo(self.reservationTimeFrameUIView.snp.centerX)
             $0.centerY.equalTo(self.reservationTimeFrameUIView.snp.centerY)
+            $0.height.equalTo(19)
         }
         self.reservationAnnouncementUILabel.snp.makeConstraints{
             $0.top.equalTo(self.reservationTimeFrameUIView.snp.bottom).offset(7)
@@ -288,20 +301,19 @@ final class HomeViewController: BaseViewController {
             $0.trailing.equalTo(secondRectangleUIView.snp.trailing).inset(254)
         }
         self.counselUIImageView.snp.makeConstraints{
-            $0.top.equalTo(secondRectangleUIView.snp.top).offset(16)
-            $0.bottom.equalTo(secondRectangleUIView.snp.bottom).inset(6)
-            $0.leading.equalTo(secondRectangleUIView.snp.leading).offset(213)
-            $0.trailing.equalTo(secondRectangleUIView.snp.trailing).inset(8)
+            $0.top.equalTo(self.secondRectangleUIView.snp.top).offset(16)
+            $0.trailing.equalTo(self.secondRectangleUIView.snp.trailing).inset(8)
+            $0.height.equalTo(70)
         }
         self.counselingReservationUILabel.snp.makeConstraints{
-            $0.top.equalTo(secondRectangleUIView.snp.bottom).offset(46)
+            $0.top.equalTo(self.secondRectangleUIView.snp.bottom).offset(46)
             $0.leading.equalTo(secondRectangleUIView.snp.leading)
+            $0.height.equalTo(16)
         }
         self.counselingReservationUIButton.snp.makeConstraints{
-            $0.top.equalTo(counselingReservationUILabel.snp.bottom).offset(17)
-            $0.bottom.equalTo(self.view).inset(94)
-            $0.leading.equalTo(firstRectangleUIView.snp.leading)
-            $0.trailing.equalTo(secondRectangleUIView.snp.trailing)
+            $0.top.equalTo(counselingReservationUILabel.snp.bottom).offset(16)
+            $0.leading.trailing.equalTo(self.view).inset(25)
+            $0.height.equalTo(126)
         }
         self.firstCounselorUIImageView.snp.makeConstraints{
             $0.size.equalTo(60)
@@ -309,35 +321,35 @@ final class HomeViewController: BaseViewController {
             $0.leading.equalTo(counselingReservationUIButton.snp.leading).offset(20)
         }
         self.secondCounselorUIImageView.snp.makeConstraints{
-            $0.size.equalTo(firstCounselorUIImageView.snp.size)
-            $0.top.equalTo(firstCounselorUIImageView)
+            $0.size.equalTo(60)
+            $0.top.equalTo(counselingReservationUIButton.snp.top).offset(23)
             $0.leading.equalTo(firstCounselorUIImageView.snp.trailing).offset(20)
         }
-        self.thirdCounselerUIImageView.snp.makeConstraints{
-            $0.size.equalTo(firstCounselorUIImageView.snp.size)
-            $0.top.equalTo(firstCounselorUIImageView)
+        self.thirdCounselorUIImageView.snp.makeConstraints{
+            $0.size.equalTo(60)
+            $0.top.equalTo(counselingReservationUIButton.snp.top).offset(23)
             $0.leading.equalTo(secondCounselorUIImageView.snp.trailing).offset(20)
         }
-        self.fourthCounselerUIImageView.snp.makeConstraints{
-            $0.size.equalTo(firstCounselorUIImageView.snp.size)
-            $0.top.equalTo(firstCounselorUIImageView)
-            $0.leading.equalTo(thirdCounselerUIImageView.snp.trailing).offset(20)
+        self.fourthCounselorUIImageView.snp.makeConstraints{
+            $0.size.equalTo(60)
+            $0.top.equalTo(counselingReservationUIButton.snp.top).offset(23)
+            $0.leading.equalTo(thirdCounselorUIImageView.snp.trailing).offset(20)
         }
         self.firstCounselorNameUILabel.snp.makeConstraints{
-            $0.top.equalTo(counselingReservationUIButton.snp.top).offset(91)
-            $0.leading.equalTo(counselingReservationUIButton.snp.leading).offset(34)
+            $0.top.equalTo(self.firstCounselorUIImageView.snp.bottom).offset(8)
+            $0.centerX.equalTo(self.firstCounselorUIImageView.snp.centerX)
         }
         self.secondCounselorNameUILabel.snp.makeConstraints{
-            $0.top.equalTo(firstCounselorNameUILabel.snp.top)
-            $0.leading.equalTo(firstCounselorNameUILabel.snp.trailing).offset(51)
+            $0.top.equalTo(self.firstCounselorUIImageView.snp.bottom).offset(8)
+            $0.centerX.equalTo(self.secondCounselorUIImageView.snp.centerX)
         }
         self.thirdCounselorNameUILabel.snp.makeConstraints{
-            $0.top.equalTo(firstCounselorNameUILabel.snp.top)
-            $0.leading.equalTo(secondCounselorNameUILabel.snp.trailing).offset(51)
+            $0.top.equalTo(self.firstCounselorUIImageView.snp.bottom).offset(8)
+            $0.centerX.equalTo(self.thirdCounselorUIImageView.snp.centerX)
         }
         self.fourthCounselorNameUILabel.snp.makeConstraints{
-            $0.top.equalTo(firstCounselorNameUILabel.snp.top)
-            $0.leading.equalTo(thirdCounselorNameUILabel.snp.trailing).offset(44)
+            $0.top.equalTo(self.firstCounselorUIImageView.snp.bottom).offset(8)
+            $0.centerX.equalTo(self.fourthCounselorUIImageView.snp.centerX)
         }
     }
 }

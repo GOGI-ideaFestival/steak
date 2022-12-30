@@ -44,8 +44,9 @@ final class CounselorSelectViewController: BaseViewController{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let firstCounselerUIImageView = UIImageView().then{
@@ -57,21 +58,21 @@ final class CounselorSelectViewController: BaseViewController{
     }
     
     private let firstCounselorUILabel = UILabel().then{
-        $0.textColor = UIColor(rgb: 0x000000)
-        $0.font = UIFont.ideaFestival(size: 17, family: .light)
+        $0.textColor = UIColor(rgb: 0x636363)
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 17)
     }
     
     private let firstCounselorExplainUILabel = UILabel().then{
         $0.numberOfLines = 3
-        $0.textColor = UIColor(rgb: 0x000000)
-        $0.font = UIFont.ideaFestival(size: 13, family: .light)
+        $0.textColor = UIColor(rgb: 0x636363)
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 13)
     }
     
     private let firstCounselorSelectUIButton = UIButton().then{
-        $0.setTitle("SELECT", for: .normal)
-        $0.titleLabel?.font = UIFont.ideaFestival(size: 8, family: .semiBold)
+        $0.setTitle("S E L E C T", for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Pretendard-Medium", size: 8)
         $0.titleLabel?.textColor = UIColor(rgb: 0xFFFFFF)
-        $0.backgroundColor = UIColor(rgb: 0xAB988E)
+        $0.backgroundColor = UIColor(red: 94/255, green: 63/255, blue: 46/255, alpha: 0.57)
         $0.layer.cornerRadius = 10
         $0.addTarget(self, action: #selector(firstCounselerSelectUIButtonDidTap), for: .touchUpInside)
     }
@@ -80,8 +81,9 @@ final class CounselorSelectViewController: BaseViewController{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let secondCounselerUIImageView = UIImageView().then{
@@ -93,21 +95,21 @@ final class CounselorSelectViewController: BaseViewController{
     }
     
     private let secondCounselorUILabel = UILabel().then{
-        $0.textColor = UIColor(rgb: 0x000000)
-        $0.font = UIFont.ideaFestival(size: 17, family: .light)
+        $0.textColor = UIColor(rgb: 0x636363)
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 17)
     }
     
     private let secondCounselorExplainUILabel = UILabel().then{
         $0.numberOfLines = 3
-        $0.textColor = UIColor(rgb: 0x000000)
-        $0.font = UIFont.ideaFestival(size: 13, family: .light)
+        $0.textColor = UIColor(rgb: 0x636363)
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 13)
     }
     
     private let secondCounselorSelectUIButton = UIButton().then{
-        $0.setTitle("SELECT", for: .normal)
-        $0.titleLabel?.font = UIFont.ideaFestival(size: 8, family: .semiBold)
+        $0.setTitle("S E L E C T", for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Pretendard-Medium", size: 8)
         $0.titleLabel?.textColor = UIColor(rgb: 0xFFFFFF)
-        $0.backgroundColor = UIColor(rgb: 0xAB988E)
+        $0.backgroundColor = UIColor(red: 94/255, green: 63/255, blue: 46/255, alpha: 0.57)
         $0.layer.cornerRadius = 10
         $0.addTarget(self, action: #selector(secondCounselerSelectUIButtonDidTap), for: .touchUpInside)
     }
@@ -116,8 +118,9 @@ final class CounselorSelectViewController: BaseViewController{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let thirdCounselerUIImageView = UIImageView().then{
@@ -129,21 +132,21 @@ final class CounselorSelectViewController: BaseViewController{
     }
     
     private let thirdCounselorUILabel = UILabel().then{
-        $0.textColor = UIColor(rgb: 0x000000)
-        $0.font = UIFont.ideaFestival(size: 17, family: .light)
+        $0.textColor = UIColor(rgb: 0x636363)
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 17)
     }
     
     private let thirdCounselorExplainUILabel = UILabel().then{
         $0.numberOfLines = 3
-        $0.textColor = UIColor(rgb: 0x000000)
-        $0.font = UIFont.ideaFestival(size: 13, family: .light)
+        $0.textColor = UIColor(rgb: 0x636363)
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 13)
     }
     
     private let thirdCounselorSelectUIButton = UIButton().then{
-        $0.setTitle("SELECT", for: .normal)
-        $0.titleLabel?.font = UIFont.ideaFestival(size: 8, family: .semiBold)
+        $0.setTitle("S E L E C T", for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Pretendard-Medium", size: 8)
         $0.titleLabel?.textColor = UIColor(rgb: 0xFFFFFF)
-        $0.backgroundColor = UIColor(rgb: 0xAB988E)
+        $0.backgroundColor = UIColor(red: 94/255, green: 63/255, blue: 46/255, alpha: 0.57)
         $0.layer.cornerRadius = 10
         $0.addTarget(self, action: #selector(thirdCounselerSelectUIButtonDidTap), for: .touchUpInside)
     }
@@ -152,8 +155,9 @@ final class CounselorSelectViewController: BaseViewController{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let fourthCounselerUIImageView = UIImageView().then{
@@ -165,21 +169,21 @@ final class CounselorSelectViewController: BaseViewController{
     }
     
     private let fourthCounselorUILabel = UILabel().then{
-        $0.numberOfLines = 3
-        $0.textColor = UIColor(rgb: 0x000000)
-        $0.font = UIFont.ideaFestival(size: 17, family: .light)
+        $0.textColor = UIColor(rgb: 0x636363)
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 17)
     }
     
     private let fourthCounselorExplainUILabel = UILabel().then{
-        $0.textColor = UIColor(rgb: 0x000000)
-        $0.font = UIFont.ideaFestival(size: 13, family: .light)
+        $0.numberOfLines = 3
+        $0.textColor = UIColor(rgb: 0x636363)
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 13)
     }
     
     private let fourthCounselorSelectUIButton = UIButton().then{
-        $0.setTitle("SELECT", for: .normal)
-        $0.titleLabel?.font = UIFont.ideaFestival(size: 8, family: .semiBold)
+        $0.setTitle("S E L E C T", for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Pretendard-Medium", size: 8)
         $0.titleLabel?.textColor = UIColor(rgb: 0xFFFFFF)
-        $0.backgroundColor = UIColor(rgb: 0xAB988E)
+        $0.backgroundColor = UIColor(red: 94/255, green: 63/255, blue: 46/255, alpha: 0.57)
         $0.layer.cornerRadius = 10
         $0.addTarget(self, action: #selector(fourthCounselerSelectUIButtonDidTap), for: .touchUpInside)
     }
@@ -280,99 +284,99 @@ final class CounselorSelectViewController: BaseViewController{
     override func setLayout() {
         self.firstRectangleUIView.snp.makeConstraints{
             $0.top.equalTo(self.view).offset(139)
-            $0.bottom.equalTo(self.view).inset(581)
             $0.leading.trailing.equalTo(self.view).inset(22)
+            $0.height.equalTo(124)
         }
         self.firstCounselerUIImageView.snp.makeConstraints{
             $0.size.equalTo(80)
-            $0.top.equalTo(self.view).offset(158)
-            $0.leading.equalTo(self.view).offset(41)
+            $0.top.equalTo(self.firstRectangleUIView.snp.top).offset(19)
+            $0.leading.equalTo(self.firstRectangleUIView.snp.leading).offset(19)
         }
         self.firstCounselorUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(162)
-            $0.leading.equalTo(self.view).offset(136)
+            $0.top.equalTo(self.firstRectangleUIView.snp.top).offset(27)
+            $0.leading.equalTo(self.firstRectangleUIView.snp.leading).inset(116)
         }
         self.firstCounselorExplainUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(194)
-            $0.leading.equalTo(self.view).offset(136)
-            $0.trailing.equalTo(self.view).inset(85)
+            $0.top.equalTo(self.firstCounselorUILabel.snp.bottom).offset(9)
+            $0.leading.equalTo(self.firstCounselorUILabel.snp.leading).offset(-2)
         }
         self.firstCounselorSelectUIButton.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(151)
-            $0.leading.equalTo(self.view).offset(282)
-            $0.trailing.equalTo(self.view).inset(38)
+            $0.top.equalTo(self.firstRectangleUIView.snp.top).offset(15)
+            $0.trailing.equalTo(self.firstRectangleUIView.snp.trailing).inset(16)
+            $0.width.equalTo(70)
+            $0.height.equalTo(28)
         }
         self.secondRectangleUIView.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(304)
-            $0.bottom.equalTo(self.view).inset(416)
+            $0.top.equalTo(self.firstRectangleUIView.snp.bottom).offset(42)
             $0.leading.trailing.equalTo(self.view).inset(22)
+            $0.height.equalTo(124)
         }
         self.secondCounselerUIImageView.snp.makeConstraints{
             $0.size.equalTo(80)
-            $0.top.equalTo(self.view).offset(326)
-            $0.leading.equalTo(firstCounselerUIImageView.snp.leading)
+            $0.top.equalTo(self.secondRectangleUIView.snp.top).offset(19)
+            $0.leading.equalTo(self.secondRectangleUIView.snp.leading).offset(19)
         }
         self.secondCounselorUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(330)
-            $0.leading.equalTo(firstCounselorUILabel.snp.leading)
+            $0.top.equalTo(self.secondRectangleUIView.snp.top).offset(27)
+            $0.leading.equalTo(self.secondRectangleUIView.snp.leading).offset(116)
         }
         self.secondCounselorExplainUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(362)
-            $0.leading.equalTo(firstCounselorExplainUILabel.snp.leading)
-            $0.trailing.equalTo(firstCounselorExplainUILabel.snp.trailing)
+            $0.top.equalTo(self.secondCounselorUILabel.snp.bottom).offset(9)
+            $0.leading.equalTo(self.secondCounselorUILabel.snp.leading).offset(-2)
         }
         self.secondCounselorSelectUIButton.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(319)
-            $0.leading.equalTo(firstCounselorSelectUIButton.snp.leading)
-            $0.trailing.equalTo(firstCounselorSelectUIButton.snp.trailing)
+            $0.top.equalTo(self.secondRectangleUIView.snp.top).offset(15)
+            $0.trailing.equalTo(self.secondRectangleUIView.snp.trailing).inset(16)
+            $0.width.equalTo(70)
+            $0.height.equalTo(28)
         }
         self.thirdRectangleUIView.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(475)
-            $0.bottom.equalTo(self.view).inset(245)
+            $0.top.equalTo(self.secondRectangleUIView.snp.bottom).offset(42)
             $0.leading.trailing.equalTo(self.view).inset(22)
+            $0.height.equalTo(124)
         }
         self.thirdCounselerUIImageView.snp.makeConstraints{
             $0.size.equalTo(80)
-            $0.top.equalTo(self.view).offset(495)
-            $0.leading.equalTo(firstCounselerUIImageView.snp.leading)
+            $0.top.equalTo(self.thirdRectangleUIView.snp.top).offset(19)
+            $0.leading.equalTo(self.thirdRectangleUIView.snp.leading).offset(19)
         }
         self.thirdCounselorUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(498)
-            $0.leading.equalTo(firstCounselorUILabel.snp.leading)
+            $0.top.equalTo(self.thirdRectangleUIView.snp.top).offset(27)
+            $0.leading.equalTo(self.thirdRectangleUIView.snp.leading).offset(116)
         }
         self.thirdCounselorExplainUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(530)
-            $0.leading.equalTo(firstCounselorExplainUILabel.snp.leading)
-            $0.trailing.equalTo(firstCounselorExplainUILabel.snp.trailing)
+            $0.top.equalTo(self.thirdCounselorUILabel.snp.bottom).offset(9)
+            $0.leading.equalTo(self.thirdCounselorUILabel.snp.leading).offset(-2)
         }
         self.thirdCounselorSelectUIButton.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(487)
-            $0.leading.equalTo(firstCounselorSelectUIButton.snp.leading)
-            $0.trailing.equalTo(firstCounselorSelectUIButton.snp.trailing)
+            $0.top.equalTo(self.thirdRectangleUIView.snp.top).offset(15)
+            $0.trailing.equalTo(self.thirdRectangleUIView.snp.trailing).inset(16)
+            $0.width.equalTo(70)
+            $0.height.equalTo(28)
         }
         self.fourthRectangleUIView.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(643)
-            $0.bottom.equalTo(self.view).inset(77)
+            $0.top.equalTo(self.thirdRectangleUIView.snp.bottom).offset(42)
             $0.leading.trailing.equalTo(self.view).inset(22)
+            $0.height.equalTo(124)
         }
         self.fourthCounselerUIImageView.snp.makeConstraints{
             $0.size.equalTo(80)
-            $0.top.equalTo(self.view).offset(663)
-            $0.leading.equalTo(firstCounselerUIImageView.snp.leading)
+            $0.top.equalTo(self.fourthRectangleUIView.snp.top).offset(19)
+            $0.leading.equalTo(self.fourthRectangleUIView.snp.leading).offset(19)
         }
         self.fourthCounselorUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(666)
-            $0.leading.equalTo(firstCounselorUILabel.snp.leading)
+            $0.top.equalTo(self.fourthRectangleUIView.snp.top).offset(27)
+            $0.leading.equalTo(self.fourthRectangleUIView.snp.leading).offset(116)
         }
         self.fourthCounselorExplainUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(698)
-            $0.leading.equalTo(firstCounselorExplainUILabel.snp.leading)
-            $0.trailing.equalTo(firstCounselorExplainUILabel.snp.trailing)
+            $0.top.equalTo(self.fourthCounselorUILabel.snp.bottom).offset(9)
+            $0.leading.equalTo(self.fourthCounselorUILabel.snp.leading).offset(-2)
         }
         self.fourthCounselorSelectUIButton.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(655)
-            $0.leading.equalTo(firstCounselorSelectUIButton.snp.leading)
-            $0.trailing.equalTo(firstCounselorSelectUIButton.snp.trailing)
+            $0.top.equalTo(self.fourthRectangleUIView.snp.top).offset(15)
+            $0.trailing.equalTo(self.fourthRectangleUIView.snp.trailing).inset(16)
+            $0.width.equalTo(70)
+            $0.height.equalTo(28)
         }
     }
 }
