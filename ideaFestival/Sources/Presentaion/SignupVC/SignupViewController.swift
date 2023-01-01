@@ -77,16 +77,6 @@ final class SignupViewController: BaseViewController{
         backUIBarButtonItem.tintColor = UIColor(rgb: 0xAB988E)
     }
     
-    override func addView(){
-        view.addSubviews(
-            emailUITextField,
-            pwdUITextField,
-            pwdCheckUITextField,
-            nicknameUITextField,
-            selectPositionUIButton
-        )
-    }
-    
     override func setLayout(){
         self.emailUITextField.snp.makeConstraints{
             $0.top.equalTo(self.view).offset(305)

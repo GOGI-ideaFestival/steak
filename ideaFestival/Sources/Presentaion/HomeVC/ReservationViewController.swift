@@ -244,118 +244,6 @@ final class ReservationViewController: BaseViewController {
         )
     }
     
-    @objc func firstReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(firstReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
-            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-                self.navigationController?.popToRootViewController(animated: false)
-            })
-            finishreservation.addAction(cancelAction)
-            self.present(finishreservation, animated: false, completion: nil)
-        }
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func secondReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(secondReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
-            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-                self.navigationController?.popToRootViewController(animated: false)
-            })
-            finishreservation.addAction(cancelAction)
-            self.present(finishreservation, animated: false, completion: nil)
-        }
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func thirdReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(thirdReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
-            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-                self.navigationController?.popToRootViewController(animated: false)
-            })
-            finishreservation.addAction(cancelAction)
-            self.present(finishreservation, animated: false, completion: nil)
-        }
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func fourthReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(fourthReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
-            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-                self.navigationController?.popToRootViewController(animated: false)
-            })
-            finishreservation.addAction(cancelAction)
-            self.present(finishreservation, animated: false, completion: nil)
-        }
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func fifthReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(fifthReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
-            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-                self.navigationController?.popToRootViewController(animated: false)
-            })
-            finishreservation.addAction(cancelAction)
-            self.present(finishreservation, animated: false, completion: nil)
-        }
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func sixthReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(sixthReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
-            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-                self.navigationController?.popToRootViewController(animated: false)
-            })
-            finishreservation.addAction(cancelAction)
-            self.present(finishreservation, animated: false, completion: nil)
-        }
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func seventhReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(seventhReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
-            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-                self.navigationController?.popToRootViewController(animated: false)
-            })
-            finishreservation.addAction(cancelAction)
-            self.present(finishreservation, animated: false, completion: nil)
-        }
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
     override func setLayout() {
         self.counselorUIImageView.snp.makeConstraints{
             $0.size.equalTo(42)
@@ -484,72 +372,72 @@ final class ReservationViewController: BaseViewController {
         let reservation = UIAlertController(title: "", message: "10:00 로 예약하시겠습니까??", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
             sendFirstReservationTime()
-            self.navigationController?.popToRootViewController(animated: false)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
         reservation.addAction(cancelAction)
         reservation.addAction(okayAction)
-        self.present(reservation, animated: false, completion: nil)
+        self.present(reservation, animated: true, completion: nil)
     }
     
     @objc func secondReservationButtonDidTap(_ sender: UIButton){
         let reservation = UIAlertController(title: "", message: "11:00 로 예약하시겠습니까??", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
             sendSecondReservationTime()
-            self.navigationController?.popToRootViewController(animated: false)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
         reservation.addAction(cancelAction)
         reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
+        present(reservation, animated: true, completion: nil)
     }
     
     @objc func thirdReservationButtonDidTap(_ sender: UIButton){
         let reservation = UIAlertController(title: "", message: "15:00 로 예약하시겠습니까??", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
             sendThirdReservationTime()
-            self.navigationController?.popToRootViewController(animated: false)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "취소", style: .destructive)
         reservation.addAction(cancelAction)
         reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
+        present(reservation, animated: true, completion: nil)
     }
     
     @objc func fourthReservationButtonDidTap(_ sender: UIButton){
         let reservation = UIAlertController(title: "", message: "16:00 로 예약하시겠습니까??", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
             sendFourthReservationTime()
-            self.navigationController?.popToRootViewController(animated: false)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "취소", style: .destructive)
         reservation.addAction(cancelAction)
         reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
+        present(reservation, animated: true, completion: nil)
     }
     
     @objc func fifthReservationButtonDidTap(_ sender: UIButton){
         let reservation = UIAlertController(title: "", message: "17:00 로 예약하시겠습니까??", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
             sendFifthReservationTime()
-            self.navigationController?.popToRootViewController(animated: false)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "취소", style: .destructive)
         reservation.addAction(cancelAction)
         reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
+        present(reservation, animated: true, completion: nil)
     }
     
     @objc func sixthReservationButtonDidTap(_ sender: UIButton){
         let reservation = UIAlertController(title: "", message: "19:00 로 예약하시겠습니까??", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
             sendSixthReservationTime()
-            self.navigationController?.popToRootViewController(animated: false)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "취소", style: .destructive)
         reservation.addAction(cancelAction)
         reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
+        present(reservation, animated: true, completion: nil)
         
     }
     
@@ -557,12 +445,12 @@ final class ReservationViewController: BaseViewController {
         let reservation = UIAlertController(title: "", message: "20:00 로 예약하시겠습니까??", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
             sendSeventhReservationTime()
-            self.navigationController?.popToRootViewController(animated: false)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "취소", style: .destructive)
         reservation.addAction(cancelAction)
         reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
+        present(reservation, animated: true, completion: nil)
     }
     
     func sendFirstReservationTime(){

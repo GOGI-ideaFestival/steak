@@ -5,7 +5,6 @@ class BaseViewController: UIViewController {
     let bounds = UIScreen().bounds
     
     override func viewDidLoad() {
-        super.loadView()
         super.viewDidLoad()
 
         setupBackgroundIfNotSet()

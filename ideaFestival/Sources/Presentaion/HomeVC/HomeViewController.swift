@@ -67,6 +67,7 @@ final class HomeViewController: BaseViewController {
         $0.textColor = UIColor(rgb: 0x796551)
         $0.textAlignment = .center
         $0.font = UIFont(name: "Pretendard-SemiBold", size: 16)
+        $0.backgroundColor = UIColor(rgb: 0xE3D4C3)
     }
     
     private let reservationTimeAnnouncementUILabel = UILabel().then{
@@ -216,6 +217,13 @@ final class HomeViewController: BaseViewController {
         fourthCounselorNameUILabel.text = fourthCounselorName
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        counselTime()
+        counselorName()
+    }
+    
+    
     override func addView() {
         counselTime()
         counselorName()
@@ -248,17 +256,6 @@ final class HomeViewController: BaseViewController {
         backUIBarButtonItem.tintColor = UIColor(rgb: 0xAB988E)
     }
     
-    override func setup() {
-        firstCounselorUIImageView.image = firstCounselorUIImage
-        secondCounselorUIImageView.image = secondCounselorUIImage
-        thirdCounselerUIImageView.image = thirdCounselorUIImage
-        fourthCounselerUIImageView.image = fourthCounselorUIImage
-        
-        firstCounselorNameUILabel.text = firstCounselorName
-        secondCounselorNameUILabel.text = secondCounselorName
-        thirdCounselorNameUILabel.text = thirdCounselorName
-        fourthCounselorNameUILabel.text = fourthCounselorName
-    }
     
     @objc private func enterUIButtonDidTap(_ sender: UIButton){
         let vc = ChatViewController()
@@ -304,21 +301,9 @@ final class HomeViewController: BaseViewController {
             $0.leading.trailing.equalTo(self.view).inset(25)
             $0.height.equalTo(162)
         }
-        self.reservationTimeFrameUIView.snp.makeConstraints {
-            $0.top.equalTo(self.firstRectangleUIView.snp.top).inset(20)
-            $0.leading.equalTo(self.firstRectangleUIView.snp.leading).offset(21)
-            $0.width.equalTo(61)
-            $0.height.equalTo(29)
-        }
-        self.reservationTimeUILabel.snp.makeConstraints{
-            $0.centerX.equalTo(self.reservationTimeFrameUIView.snp.centerX)
-            $0.centerY.equalTo(self.reservationTimeFrameUIView.snp.centerY)
-            $0.height.equalTo(19)
-        }
-        self.reservationAnnouncementUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.reservationTimeFrameUIView.snp.bottom).offset(7)
-            $0.leading.equalTo(self.firstRectangleUIView.snp.leading).offset(21)
-            $0.trailing.equalTo(self.firstRectangleUIView.snp.trailing).inset(78)
+        self.reservationTimeAnnouncementUILabel.snp.makeConstraints{
+            $0.top.equalTo(firstRectangleUIView.snp.top).inset(26)
+            $0.leading.equalTo(firstRectangleUIView).inset(20)
         }
         self.counselorNameAnnounceUILabel.snp.makeConstraints{
             $0.top.equalTo(firstRectangleUIView.snp.top).inset(56)
@@ -328,10 +313,9 @@ final class HomeViewController: BaseViewController {
             $0.top.equalTo(counselorNameAnnounceUILabel.snp.top)
             $0.leading.equalTo(firstRectangleUIView).inset(120)
         }
-        self.counselCancelUIButton.snp.makeConstraints{
-            $0.top.equalTo(self.reservationAnnouncementUILabel.snp.bottom).offset(26)
-            $0.leading.equalTo(self.firstRectangleUIView).offset(21)
-            $0.height.equalTo(15)
+        self.reservationTimeUILabel.snp.makeConstraints{
+            $0.top.equalTo(reservationTimeAnnouncementUILabel.snp.top)
+            $0.leading.equalTo(firstRectangleUIView).inset(120)
         }
         self.secondRectangleUIView.snp.makeConstraints{
             $0.top.equalTo(self.firstRectangleUIView.snp.bottom).offset(28)

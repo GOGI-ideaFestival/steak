@@ -73,19 +73,19 @@ final class ProfileViewController: BaseViewController {
     }
     override func setup() {
         fetchProfile()
-    
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         rightBackUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(goToModify))
         navigationItem.rightBarButtonItem?.tintColor = UIColor(rgb: 0x6A6868)
         leftBackUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "로그아웃", style: .plain, target: self, action: #selector(goToModify))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "로그아웃", style: .plain, target: self, action: #selector(goToModify))
         navigationItem.leftBarButtonItem?.tintColor = UIColor(rgb: 0x6A6868)
         self.navigationItem.backBarButtonItem = rightBackUIBarButtonItem
         self.navigationItem.backBarButtonItem = leftBackUIBarButtonItem
     }
-   
+    
     override func viewWillAppear(_ animated: Bool) {
         fetchContact()
         profileUIImageView.image = profileImage
@@ -161,13 +161,13 @@ final class ProfileViewController: BaseViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         do {
-          let result = try context.fetch(fetchRequest)
-          for data in result as! [NSManagedObject] {
-            let aaa = (data.value(forKey: "profileImage") as! Data)
-            profileImage = UIImage(data: aaa)
-          }
+            let result = try context.fetch(fetchRequest)
+            for data in result as! [NSManagedObject] {
+                let aaa = (data.value(forKey: "profileImage") as! Data)
+                profileImage = UIImage(data: aaa)
+            }
         } catch let error as NSError {
-          print("Could not fetch. \(error), \(error.userInfo)")
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
     
@@ -186,3 +186,4 @@ final class ProfileViewController: BaseViewController {
         }
     }
 }
+
