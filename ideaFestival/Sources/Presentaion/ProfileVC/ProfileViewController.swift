@@ -2,9 +2,14 @@ import UIKit
 import CoreData
 import SnapKit
 import Then
+import Firebase
 
-class ProfileViewController: BaseViewController {
+final class ProfileViewController: BaseViewController {
     
+    let db = Firestore.firestore()
+    var messages: [Message] = []
+    
+    private let backUIBarButtonItem = UIBarButtonItem()
     private var profileImage: UIImage?
     
     private let leftBackUIBarButtonItem = UIBarButtonItem()
@@ -35,7 +40,6 @@ class ProfileViewController: BaseViewController {
     }
     
     private let emailUILabel = UILabel().then {
-        $0.text = "s220xx@gsm.hs.kr"
         $0.textColor = UIColor(rgb: 0x575757)
         $0.font = .ideaFestival(size: 16, family: .regular)
         $0.numberOfLines = 1
@@ -67,19 +71,21 @@ class ProfileViewController: BaseViewController {
         $0.textColor = UIColor(rgb: 0x000000)
         $0.font = .ideaFestival(size: 14, family: .regular)
     }
-    
+    override func setup() {
+        fetchProfile()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         rightBackUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(goToModify))
         navigationItem.rightBarButtonItem?.tintColor = UIColor(rgb: 0x6A6868)
         leftBackUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "로그아웃", style: .plain, target: self, action: #selector(goToModify))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "로그아웃", style: .plain, target: self, action: #selector(goToModify))
         navigationItem.leftBarButtonItem?.tintColor = UIColor(rgb: 0x6A6868)
         self.navigationItem.backBarButtonItem = rightBackUIBarButtonItem
         self.navigationItem.backBarButtonItem = leftBackUIBarButtonItem
     }
-   
+    
     override func viewWillAppear(_ animated: Bool) {
         fetchContact()
         profileUIImageView.image = profileImage
@@ -99,6 +105,10 @@ class ProfileViewController: BaseViewController {
             mypenaltyUIImageView,
             penaltyMessageUILabel
         )
+        backUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(goToModify))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(rgb: 0x6A6868)
+        self.navigationItem.backBarButtonItem = backUIBarButtonItem
     }
     
     override func setLayout() {
@@ -151,18 +161,29 @@ class ProfileViewController: BaseViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         do {
-          let result = try context.fetch(fetchRequest)
-          for data in result as! [NSManagedObject] {
-            let aaa = (data.value(forKey: "profileImage") as! Data)
-            profileImage = UIImage(data: aaa)
-          }
+            let result = try context.fetch(fetchRequest)
+            for data in result as! [NSManagedObject] {
+                let aaa = (data.value(forKey: "profileImage") as! Data)
+                profileImage = UIImage(data: aaa)
+            }
         } catch let error as NSError {
-          print("Could not fetch. \(error), \(error.userInfo)")
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
     
     @objc private func goToModify(_ sender: UIButton) {
         let vc = ModifyViewController()
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func fetchProfile() {
+        if let user = Auth.auth().currentUser?.email{
+            db.collection("Steak2").document(user).getDocument { snapshot, err in
+                self.nicknameUILabel.text = snapshot?.data()?["nickname"] as? String
+                self.emailUILabel.text = Auth.auth().currentUser?.email
+            }
+        }
+    }
 }
+

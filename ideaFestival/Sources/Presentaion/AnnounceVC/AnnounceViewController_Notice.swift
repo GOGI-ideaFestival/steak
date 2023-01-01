@@ -1,12 +1,12 @@
 import UIKit
 
-class AnnounceViewController_Notice: BaseViewController {
-    
+final class AnnounceViewController_Notice: BaseViewController {
+
     private let noticeTitleUILabel = UILabel().then {
         $0.text = "Gogi"
         $0.font = UIFont(name: "Adelle-SemiBold", size: 27)
     }
-    
+
     private let noticeContentsFrameUIView = UIView().then{
         $0.backgroundColor = UIColor(rgb: 0xFFFFFF)
         $0.layer.shadowRadius = 6
@@ -14,7 +14,7 @@ class AnnounceViewController_Notice: BaseViewController {
         $0.layer.shadowOffset = CGSize.zero
         $0.layer.cornerRadius = 40
     }
-    
+
     private let noticeContentsUILabel = UILabel().then {
         $0.text =
         """
@@ -42,7 +42,7 @@ class AnnounceViewController_Notice: BaseViewController {
             noticeContentsUILabel
         )
     }
-    
+
     override func setLayout() {
         self.noticeTitleUILabel.snp.makeConstraints {
             $0.top.equalTo(self.view).offset(125)

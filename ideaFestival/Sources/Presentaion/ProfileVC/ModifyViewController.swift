@@ -3,7 +3,7 @@ import CoreData
 import SnapKit
 import Then
 
-class ModifyViewController: BaseViewController{
+final class ModifyViewController: BaseViewController{
     
     private var profileImage: UIImage?
     
@@ -59,6 +59,7 @@ class ModifyViewController: BaseViewController{
             explainNicknameUILabel,
             changeNicknameUITextField
         )
+        hideKeyboardWhenTappedAround()
     }
     
     override func setLayout() {

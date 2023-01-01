@@ -108,6 +108,7 @@ final class AnnounceViewController: BaseViewController {
     
     @objc private func goToNextStep() {
         let controller = AnnounceViewController_Notice()
+        controller.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(controller, animated: true)
     }
 }

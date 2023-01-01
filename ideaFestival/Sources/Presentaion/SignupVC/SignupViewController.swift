@@ -1,11 +1,14 @@
-import SnapKit
 import UIKit
+import SnapKit
 import Then
+import Firebase
 import CoreData
 
-class SignupViewController: BaseViewController{
+final class SignupViewController: BaseViewController{
     
-    private let backUIBarButtonItem = UIBarButtonItem()
+    let db = Firestore.firestore()
+    var messages: [Message] = []
+    private let backUIBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     
     private let emailUITextField = UITextField().then{
         $0.becomeFirstResponder()
@@ -53,14 +56,12 @@ class SignupViewController: BaseViewController{
     private let selectPositionUIButton = UIButton().then{
         $0.setTitle("역할 선택하기", for: .normal)
         $0.setTitleColor(UIColor.black, for: .normal)
-        $0.addTarget(self, action: #selector(goSelect), for: .touchUpInside)
         $0.titleLabel?.font = UIFont(name: "JainiPurva-Regular", size: 15)
+        $0.addTarget(self, action: #selector(signup), for: .touchUpInside)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.backBarButtonItem = backUIBarButtonItem
-        backUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.emailUITextField.resignFirstResponder()
     }
     
     override func addView(){
@@ -71,6 +72,9 @@ class SignupViewController: BaseViewController{
             nicknameUITextField,
             selectPositionUIButton
         )
+        hideKeyboardWhenTappedAround()
+        self.navigationItem.backBarButtonItem = backUIBarButtonItem
+        backUIBarButtonItem.tintColor = UIColor(rgb: 0xAB988E)
     }
     
     override func setLayout(){
@@ -101,18 +105,18 @@ class SignupViewController: BaseViewController{
     }
     
     @objc private func goSelect(){
-        self.TFdidChanged()
+        TFdidChanged()
         if emailFormatCheck() == false{
-            self.wrongEmailAlert()
+            wrongEmailAlertMessage()
         }
-        self.pwdFormatCheck()
-        
+        pwdFormatCheck()
         let controller = ChoiceViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.emailUITextField.resignFirstResponder()
+    @objc private func goToSelectView(){
+        let controller = ChoiceViewController()
+        self.navigationController?.setViewControllers([controller], animated: true)
     }
     
     func isSameBothTextField(_ first: UITextField,_ second: UITextField) -> Bool {
@@ -125,29 +129,16 @@ class SignupViewController: BaseViewController{
     
     @objc func TFdidChanged(){
         if (self.emailUITextField.text?.isEmpty ?? true) || (self.pwdUITextField.text?.isEmpty ?? true) || (self.pwdCheckUITextField.text?.isEmpty ?? true) || (self.nicknameUITextField.text?.isEmpty ?? true) {
-            self.emptyField()
+            emptyFieldAlertMessage()
         }
         else if !(isSameBothTextField(pwdUITextField, pwdCheckUITextField)){
-            self.notSamePwd()
+            notSamePasswordAlerMessage()
         }
     }
     
-    @objc private func emptyField(){
-        let completed = UIAlertController(title: "입력되지않은 칸이 있습니다", message: "빈 칸이 없도록 기입해주세요", preferredStyle: .alert)
-        completed.addAction(UIAlertAction(title: "확인", style: .default){_ in
-        })
-        present(completed, animated: true, completion: nil)
-    }
-    
-    @objc private func notSamePwd(){
-        let completed = UIAlertController(title: "비밀번호가 일치하지 않습니다", message: "비밀번호 확인란을 다시 기입해주세요", preferredStyle: .alert)
-        completed.addAction(UIAlertAction(title: "확인", style: .default){_ in
-        })
-        present(completed, animated: true, completion: nil)
-    }
     
     func emailFormatCheck() -> Bool{
-        var id = emailUITextField.text ?? ""
+        let id = emailUITextField.text ?? ""
         if id.count == 16{
             let firstIdIndex = id.index(id.startIndex, offsetBy: 6)
             let lastIdIndex = id.index(id.startIndex, offsetBy: 16)
@@ -164,38 +155,80 @@ class SignupViewController: BaseViewController{
         }
     }
     
-    @objc private func wrongEmailAlert(){
+    func pwdFormatCheck(){
+        let pwd = pwdUITextField.text ?? ""
+        if pwd.count < 6{
+            wrongPasswordAlertMessage()
+        }
+    }
+    
+    func nicknameFormatCheck(){
+        let nickname = nicknameUITextField.text ?? ""
+        if nickname.count > 6{
+            wrongNicknameAlertMessage()
+        }
+    }
+    @objc private func emptyFieldAlertMessage(){
+        let completed = UIAlertController(title: "입력되지않은 칸이 있습니다", message: "빈 칸이 없도록 기입해주세요", preferredStyle: .alert)
+        completed.addAction(UIAlertAction(title: "확인", style: .default){_ in
+        })
+        present(completed, animated: true, completion: nil)
+    }
+    
+    @objc private func wrongEmailAlertMessage(){
         let completed = UIAlertController(title: "이메일 형식이 올바르지 않습니다", message: "다시 입력해주세요", preferredStyle: .alert)
         completed.addAction(UIAlertAction(title: "확인", style: .default){_ in
         })
         present(completed, animated: true, completion: nil)
     }
     
-    func pwdFormatCheck(){
-        var pwd = pwdUITextField.text ?? ""
-        if pwd.count < 6{
-            wrongPwdAlert()
-        }
-    }
-    
-    @objc private func wrongPwdAlert(){
+    @objc private func wrongPasswordAlertMessage(){
         let completed = UIAlertController(title: "비밀번호는 6자 이상으로 설정해 주세요", message: nil, preferredStyle: .alert)
         completed.addAction(UIAlertAction(title: "확인", style: .default){_ in
         })
         present(completed, animated: true, completion: nil)
     }
     
-    func nicknameFormatCheck(){
-        var nickname = nicknameUITextField.text ?? ""
-        if nickname.count > 6{
-            wrongNicknameAlert()
-        }
+    @objc private func notSamePasswordAlerMessage(){
+        let completed = UIAlertController(title: "비밀번호가 일치하지 않습니다", message: "비밀번호 확인란을 다시 기입해주세요", preferredStyle: .alert)
+        completed.addAction(UIAlertAction(title: "확인", style: .default){_ in
+        })
+        present(completed, animated: true, completion: nil)
     }
     
-    @objc private func wrongNicknameAlert(){
+    @objc private func wrongNicknameAlertMessage(){
         let completed = UIAlertController(title: "닉네임은 6자 이하로 설정해 주세요", message: nil, preferredStyle: .alert)
         completed.addAction(UIAlertAction(title: "확인", style: .default){_ in
         })
         present(completed, animated: true, completion: nil)
     }
+    @objc func signup(_ sender: UIButton){
+        
+        guard let id = emailUITextField.text else{return}
+        guard let ps = pwdUITextField.text else{return}
+        goSelect()
+        
+        Auth.auth().createUser(withEmail: id, password: ps) { result, error in
+            if let error{
+                print(error)
+                let completed = UIAlertController(title: "이미 존재하는 아이디입니다", message: nil, preferredStyle: .alert)
+                completed.addAction(UIAlertAction(title: "확인", style: .default){_ in
+                })
+                self.present(completed, animated: true, completion: nil)
+            }else{
+                self.sendNickname()
+                self.goToSelectView()
+                
+            }
+        }
+    }
+    
+    func sendNickname(){
+        if let nickname = nicknameUITextField.text,
+            let user = Auth.auth().currentUser?.email
+        {
+            db.collection("Steak2").document(user).setData(["nickname" : nickname])
+        }
+    }
 }
+

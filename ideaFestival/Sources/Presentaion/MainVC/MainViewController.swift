@@ -26,9 +26,9 @@ final class MainViewController: UITabBarController {
         
         view.backgroundColor = .white
         
-        let navigationProfile = UINavigationController(rootViewController: profileVC)
-        let navigationHome = UINavigationController(rootViewController: homeVC)
-        let navigationAnnounce = UINavigationController(rootViewController: announceVC)
+        let navigationProfile = profileVC
+        let navigationHome = homeVC
+        let navigationAnnounce = announceVC
         
         setViewControllers([navigationProfile, navigationHome, navigationAnnounce], animated: false)
     }

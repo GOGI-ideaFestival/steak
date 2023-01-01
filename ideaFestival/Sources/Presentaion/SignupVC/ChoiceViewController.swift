@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ChoiceViewController: BaseViewController{
+final class ChoiceViewController: BaseViewController{
 
     private let userSelectUIButton = UIButton().then{
         $0.backgroundColor = UIColor(rgb: 0xFFFFFF)
@@ -94,7 +94,8 @@ class ChoiceViewController: BaseViewController{
         let completed = UIAlertController(title: "가입이 완료되었습니다.", message: nil, preferredStyle: .alert)
         completed.addAction(UIAlertAction(title: "확인", style: .default){_ in
             let controller = LoginViewController()
-            self.navigationController?.pushViewController(controller, animated: true)
+            self.navigationController?.setViewControllers([controller], animated: true)
+            
         })
         present(completed, animated: true, completion: nil)
     }

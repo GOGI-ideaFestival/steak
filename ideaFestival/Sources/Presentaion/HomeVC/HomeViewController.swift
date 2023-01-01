@@ -1,8 +1,11 @@
 import UIKit
 import SnapKit
 import Then
+import Firebase
 
 final class HomeViewController: BaseViewController {
+    
+    let db = Firestore.firestore()
     
     private let firstCounselorUIImage = UIImage(named: "Pororo")
     private let secondCounselorUIImage = UIImage(named: "Eddy")
@@ -62,16 +65,30 @@ final class HomeViewController: BaseViewController {
     
     private let reservationTimeUILabel = UILabel().then{
         $0.textColor = UIColor(rgb: 0x796551)
-        $0.text = "20:00"
         $0.textAlignment = .center
         $0.font = UIFont(name: "Pretendard-SemiBold", size: 16)
+        $0.backgroundColor = UIColor(rgb: 0xE3D4C3)
     }
     
-    private let reservationAnnouncementUILabel = UILabel().then{
+    private let reservationTimeAnnouncementUILabel = UILabel().then{
+        $0.textColor = UIColor(rgb: 0x796551)
+        $0.text = "예약된 시간 : "
+        $0.textAlignment = .center
+        $0.font = UIFont.ideaFestival(size: 16, family: .semiBold)
+    }
+    
+    private let counselorNameUILabel = UILabel().then{
         $0.textColor = UIColor(rgb: 0x937A75)
-        $0.text = "name과의 상담이 예약되어있어요!\n🕐 약속 시간을 잘 지켜주세요 🙂"
         $0.numberOfLines = 3
-        $0.font = UIFont(name: "NotoSans-SemiBold", size: 16)
+        $0.font = UIFont.ideaFestival(size: 16, family: .semiBold)
+        $0.backgroundColor = UIColor(rgb: 0xE3D4C3)
+    }
+    
+    private let counselorNameAnnounceUILabel = UILabel().then{
+        $0.textColor = UIColor(rgb: 0x937A75)
+        $0.numberOfLines = 3
+        $0.font = UIFont.ideaFestival(size: 16, family: .semiBold)
+        $0.text = "예약된 상담가 : "
     }
     
     private let counselCancelUIButton = UIButton().then{
@@ -108,6 +125,7 @@ final class HomeViewController: BaseViewController {
         $0.layer.shadowRadius = 6
         $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 5
+        $0.addTarget(self, action: #selector(enterUIButtonDidTap), for: .touchUpInside)
         $0.layer.shadowOffset = CGSize.zero
     }
     
@@ -199,14 +217,25 @@ final class HomeViewController: BaseViewController {
         fourthCounselorNameUILabel.text = fourthCounselorName
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        counselTime()
+        counselorName()
+    }
+    
+    
     override func addView() {
+        counselTime()
+        counselorName()
         view.addSubviews(
             todayUILabel,
             dateUILabel,
             firstRectangleUIView,
             reservationTimeFrameUIView,
             reservationTimeUILabel,
-            reservationAnnouncementUILabel,
+            reservationTimeAnnouncementUILabel,
+            counselorNameUILabel,
+            counselorNameAnnounceUILabel,
             counselCancelUIButton,
             secondRectangleUIView,
             counselorRoomUILabel,
@@ -227,6 +256,13 @@ final class HomeViewController: BaseViewController {
         backUIBarButtonItem.tintColor = UIColor(rgb: 0xAB988E)
     }
     
+    
+    @objc private func enterUIButtonDidTap(_ sender: UIButton){
+        let vc = ChatViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @objc private func counselingReservationUIButtonDidTap(_ sender: UIButton){        firstCounselorSelectUIImage = firstCounselorUIImage
         secondCounselorSelectUIImage = secondCounselorUIImage
         thirdCounselorSelectUIImage = thirdCounselorUIImage
@@ -245,6 +281,7 @@ final class HomeViewController: BaseViewController {
             secondCounselorSelectName: secondCounselorSelectName,
             thirdCounselorSelectName: thirdCounselorSelectName,
             fourthCounselorSelectName: fourthCounselorSelectName)
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -264,26 +301,21 @@ final class HomeViewController: BaseViewController {
             $0.leading.trailing.equalTo(self.view).inset(25)
             $0.height.equalTo(162)
         }
-        self.reservationTimeFrameUIView.snp.makeConstraints {
-            $0.top.equalTo(self.firstRectangleUIView.snp.top).inset(20)
-            $0.leading.equalTo(self.firstRectangleUIView.snp.leading).offset(21)
-            $0.width.equalTo(61)
-            $0.height.equalTo(29)
+        self.reservationTimeAnnouncementUILabel.snp.makeConstraints{
+            $0.top.equalTo(firstRectangleUIView.snp.top).inset(26)
+            $0.leading.equalTo(firstRectangleUIView).inset(20)
+        }
+        self.counselorNameAnnounceUILabel.snp.makeConstraints{
+            $0.top.equalTo(firstRectangleUIView.snp.top).inset(56)
+            $0.leading.equalTo(firstRectangleUIView).inset(20)
+        }
+        self.counselorNameUILabel.snp.makeConstraints{
+            $0.top.equalTo(counselorNameAnnounceUILabel.snp.top)
+            $0.leading.equalTo(firstRectangleUIView).inset(120)
         }
         self.reservationTimeUILabel.snp.makeConstraints{
-            $0.centerX.equalTo(self.reservationTimeFrameUIView.snp.centerX)
-            $0.centerY.equalTo(self.reservationTimeFrameUIView.snp.centerY)
-            $0.height.equalTo(19)
-        }
-        self.reservationAnnouncementUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.reservationTimeFrameUIView.snp.bottom).offset(7)
-            $0.leading.equalTo(self.firstRectangleUIView.snp.leading).offset(21)
-            $0.trailing.equalTo(self.firstRectangleUIView.snp.trailing).inset(78)
-        }
-        self.counselCancelUIButton.snp.makeConstraints{
-            $0.top.equalTo(self.reservationAnnouncementUILabel.snp.bottom).offset(26)
-            $0.leading.equalTo(self.firstRectangleUIView).offset(21)
-            $0.height.equalTo(15)
+            $0.top.equalTo(reservationTimeAnnouncementUILabel.snp.top)
+            $0.leading.equalTo(firstRectangleUIView).inset(120)
         }
         self.secondRectangleUIView.snp.makeConstraints{
             $0.top.equalTo(self.firstRectangleUIView.snp.bottom).offset(28)
@@ -352,6 +384,30 @@ final class HomeViewController: BaseViewController {
             $0.centerX.equalTo(self.fourthCounselorUIImageView.snp.centerX)
         }
     }
+    
+    func counselTime() {
+        if let user = Auth.auth().currentUser?.email{
+            db.collection("Steak3").document(user).getDocument { snapshot, err in
+                if let counselTime = snapshot?.data()?["counselTime"] as? String{
+                    self.reservationTimeUILabel.text = counselTime
+                }
+                else{
+                    self.reservationTimeUILabel.text = ""
+                }
+            }
+        }
+    }
+    
+    func counselorName() {
+        if let user = Auth.auth().currentUser?.email{
+            db.collection("Steak4").document(user).getDocument { snapshot, err in
+                if let counselTime = snapshot?.data()?["counselor"] as? String{
+                    self.counselorNameUILabel.text = counselTime
+                }
+                else{
+                    self.counselorNameUILabel.text = ""
+                }
+            }
+        }
+    }
 }
-
-

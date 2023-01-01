@@ -41,6 +41,7 @@ class BaseViewController: UIViewController {
     func setLayout() {}
     func setLayoutSubviews() {}
     
+    
     func bind() {}
 }
 
