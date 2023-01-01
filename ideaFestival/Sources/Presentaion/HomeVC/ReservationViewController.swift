@@ -1,18 +1,20 @@
 import UIKit
 import SnapKit
 import Then
+import Firebase
 
 final class ReservationViewController: BaseViewController {
     
+    let db = Firestore.firestore()
     var counselorReservationUIImage: UIImage?
     var counselor: String
-    var firstReservationTime: String
-    var secondReservationTime: String
-    var thirdReservationTime: String
-    var fourthReservationTime: String
-    var fifthReservationTime: String
-    var sixthReservationTime: String
-    var seventhReservationTime: String
+    var firstReservationTime: String?
+    var secondReservationTime: String?
+    var thirdReservationTime: String?
+    var fourthReservationTime: String?
+    var fifthReservationTime: String?
+    var sixthReservationTime: String?
+    var seventhReservationTime: String?
     
     private let counselorUIImageView = UIImageView().then{
         $0.layer.cornerRadius = 21
@@ -235,69 +237,6 @@ final class ReservationViewController: BaseViewController {
         )
     }
     
-    @objc func firstReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(firstReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = (UIAlertAction(title: "확인", style: .default))
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func secondReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(secondReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = (UIAlertAction(title: "확인", style: .default))
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func thirdReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(thirdReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = (UIAlertAction(title: "확인", style: .default))
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func fourthReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(fourthReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = (UIAlertAction(title: "확인", style: .default))
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func fifthReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(fifthReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = (UIAlertAction(title: "확인", style: .default))
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func sixthReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(sixthReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = (UIAlertAction(title: "확인", style: .default))
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
-    @objc func seventhReservationButtonDidTap(_ sender: UIButton){
-        let reservation = UIAlertController(title: "", message: "\(seventhReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
-        let okayAction = (UIAlertAction(title: "확인", style: .default))
-        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
-        reservation.addAction(cancelAction)
-        reservation.addAction(okayAction)
-        present(reservation, animated: false, completion: nil)
-    }
-    
     override func setLayout() {
         self.counselorUIImageView.snp.makeConstraints{
             $0.size.equalTo(42)
@@ -419,6 +358,161 @@ final class ReservationViewController: BaseViewController {
             $0.bottom.equalTo(self.view).inset(53)
             $0.leading.equalTo(firstReservationUIButton.snp.leading)
             $0.trailing.equalTo(firstReservationUIButton.snp.trailing)
+        }
+    }
+    
+    @objc func firstReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "10:00 로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
+            sendFirstReservationTime()
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        self.present(reservation, animated: false, completion: nil)
+    }
+    
+    @objc func secondReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "11:00 로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
+            sendSecondReservationTime()
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+    }
+    
+    @objc func thirdReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "15:00 로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
+            sendThirdReservationTime()
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .destructive)
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+    }
+    
+    @objc func fourthReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "16:00 로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
+            sendFourthReservationTime()
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .destructive)
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+    }
+    
+    @objc func fifthReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "17:00 로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
+            sendFifthReservationTime()
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .destructive)
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+    }
+    
+    @objc func sixthReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "19:00 로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
+            sendSixthReservationTime()
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .destructive)
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+        
+    }
+    
+    @objc func seventhReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "20:00 로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: .default){ [self] _ in
+            sendSeventhReservationTime()
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .destructive)
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+    }
+    
+    func sendFirstReservationTime(){
+        let counselorName = counselor
+        if let first = firstReservationTime,
+            let user = Auth.auth().currentUser?.email
+        {
+            db.collection("Steak3").document(user).setData(["counselTime" : first])
+            db.collection("Steak4").document(user).setData(["counselor" : counselorName])
+        }
+    }
+    
+    func sendSecondReservationTime(){
+        let counselorName = counselor
+        if let second = secondReservationTime,
+            let user = Auth.auth().currentUser?.email
+        {
+            db.collection("Steak3").document(user).setData(["counselTime" : second])
+            db.collection("Steak4").document(user).setData(["counselor" : counselorName])
+        }
+    }
+    
+    func sendThirdReservationTime(){
+        let counselorName = counselor
+        if let third = thirdReservationTime,
+            let user = Auth.auth().currentUser?.email
+        {
+            db.collection("Steak3").document(user).setData(["counselTime" : third])
+            db.collection("Steak4").document(user).setData(["counselor" : counselorName])
+        }
+    }
+    
+    func sendFourthReservationTime(){
+        let counselorName = counselor
+        if let fourth = fourthReservationTime,
+            let user = Auth.auth().currentUser?.email
+        {
+            db.collection("Steak3").document(user).setData(["counselTime" : fourth])
+            db.collection("Steak4").document(user).setData(["counselor" : counselorName])
+        }
+    }
+    
+    func sendFifthReservationTime(){
+        let counselorName = counselor
+        if let fifth = fifthReservationTime,
+            let user = Auth.auth().currentUser?.email
+        {
+            db.collection("Steak3").document(user).setData(["counselTime" : fifth])
+            db.collection("Steak4").document(user).setData(["counselor" : counselorName])
+        }
+    }
+    
+    func sendSixthReservationTime(){
+        let counselorName = counselor
+        if let sixth = sixthReservationTime,
+            let user = Auth.auth().currentUser?.email
+        {
+            db.collection("Steak3").document(user).setData(["counselTime" : sixth])
+            db.collection("Steak4").document(user).setData(["counselor" : counselorName])
+        }
+    }
+    
+    func sendSeventhReservationTime(){
+        let counselorName = counselor
+        if let seventh = seventhReservationTime,
+            let user = Auth.auth().currentUser?.email
+        {
+            db.collection("Steak3").document(user).setData(["counselTime" : seventh])
+            db.collection("Steak4").document(user).setData(["counselor" : counselorName])
         }
     }
 }

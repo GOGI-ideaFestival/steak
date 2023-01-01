@@ -4,7 +4,13 @@ class BaseViewController: UIViewController {
     // MARK: - Properties
     let bounds = UIScreen().bounds
     // MARK: - LifeCycle
+    
+//    override func loadView() {
+//        super.loadView()
+//    }
+    
     override func viewDidLoad() {
+        super.loadView()
         super.viewDidLoad()
 
         setupBackgroundIfNotSet()
@@ -40,6 +46,7 @@ class BaseViewController: UIViewController {
     func addView() {}
     func setLayout() {}
     func setLayoutSubviews() {}
+    
     
     func bind() {}
 }

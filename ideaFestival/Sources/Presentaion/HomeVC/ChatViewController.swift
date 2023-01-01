@@ -2,7 +2,7 @@ import UIKit
 import Foundation
 import Firebase
 
-class ChatViewController: BaseViewController{
+final class ChatViewController: BaseViewController{
     
     let db = Firestore.firestore()
     var messages: [Message] = []
@@ -36,6 +36,7 @@ class ChatViewController: BaseViewController{
             sendUIButton,
             messageUITextField
         )
+        hideKeyboardWhenTappedAround()
     }
     
     override func setup() {
@@ -52,7 +53,7 @@ class ChatViewController: BaseViewController{
             $0.trailing.equalTo(self.view)
         }
         self.sendUIButton.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(400)
+            $0.top.equalTo(self.view).offset(440)
             $0.height.equalTo(45)
             $0.leading.equalTo(messageUITextField.snp.trailing).offset(5)
             $0.trailing.equalTo(self.view).inset(10)
@@ -65,11 +66,9 @@ class ChatViewController: BaseViewController{
         }
     }
     
-    
     @objc func sendMessage(_ sender: UIButton){
-        if let messageContent = messageUITextField.text {
-            let messageSender = "상담가"
-            
+        if let messageContent = messageUITextField.text,
+           let messageSender = Auth.auth().currentUser?.email{
             db.collection("Steak")
                 .addDocument(data: [
                     "sender": messageSender,
@@ -82,12 +81,23 @@ class ChatViewController: BaseViewController{
                         print("Success save data")
                         DispatchQueue.main.async{
                             self.messageUITextField.text = ""
-                        }
                     }
                 }
+            }
         }
     }
     
+    func tableView(_ tableView: UITableViewCell, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let message = messages[indexPath.row]
+        
+        let messageCell = messageTableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)as! ChatTableViewCell
+        
+        messageCell.configure(message: message)
+        
+        return messageCell
+        
+    }
     
     private func loadMessages(){
         db.collection("Steak")
@@ -128,7 +138,7 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let messageCell: ChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! ChatTableViewCell
         
-        messageCell.aaa(message: messages[indexPath.row])
+        messageCell.configure(message: messages[indexPath.row])
         return messageCell
     }
 }

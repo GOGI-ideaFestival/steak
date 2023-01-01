@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ModifyViewController: BaseViewController{
+final class ModifyViewController: BaseViewController{
     
     let UIimagePickerController = UIImagePickerController()
     
@@ -54,6 +54,7 @@ class ModifyViewController: BaseViewController{
             explainNicknameUILabel,
             changeNicknameUITextField
         )
+        hideKeyboardWhenTappedAround()
     }
     
     override func setLayout() {

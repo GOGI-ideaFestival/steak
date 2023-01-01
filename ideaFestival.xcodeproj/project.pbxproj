@@ -29,7 +29,10 @@
 		787008A22959DB41007A7BF7 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 787008A12959DB41007A7BF7 /* FirebaseFirestoreSwift */; };
 		787008A42959DB41007A7BF7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 787008A32959DB41007A7BF7 /* FirebaseStorage */; };
 		787008A62959DB41007A7BF7 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 787008A52959DB41007A7BF7 /* FirebaseStorageCombine-Community */; };
-		787008A82959E1C8007A7BF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 787008A72959E1C8007A7BF7 /* GoogleService-Info.plist */; };
+		787F0739295C5638000027A7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787F0738295C5638000027A7 /* ChatViewController.swift */; };
+		787F073E295C56CC000027A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 787F073D295C56CC000027A7 /* GoogleService-Info.plist */; };
+		787F0740295C56E1000027A7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787F073F295C56E1000027A7 /* Model.swift */; };
+		787F0743295C60CA000027A7 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787F0742295C60CA000027A7 /* ChatTableViewCell.swift */; };
 		7886DCB4294DD81100D77AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7886DCB3294DD81100D77AEE /* AppDelegate.swift */; };
 		7886DCB6294DD81100D77AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7886DCB5294DD81100D77AEE /* SceneDelegate.swift */; };
 		7886DCB8294DD81100D77AEE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7886DCB7294DD81100D77AEE /* MainViewController.swift */; };
@@ -78,7 +81,10 @@
 		782ABFB829508CB100A8D6AC /* Adelle_SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Adelle_SemiBold.otf; sourceTree = "<group>"; };
 		782ABFB929508CB100A8D6AC /* Adelle_SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Adelle_SemiBoldItalic.otf; sourceTree = "<group>"; };
 		782ABFBA29508CB100A8D6AC /* Adelle_ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Adelle_ExtraBoldItalic.otf; sourceTree = "<group>"; };
-		787008A72959E1C8007A7BF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		787F0738295C5638000027A7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		787F073D295C56CC000027A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		787F073F295C56E1000027A7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		787F0742295C60CA000027A7 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		7886DCB0294DD81100D77AEE /* ideaFestival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ideaFestival.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7886DCB3294DD81100D77AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7886DCB5294DD81100D77AEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +154,22 @@
 			path = SignupVC;
 			sourceTree = "<group>";
 		};
+		787F073A295C564A000027A7 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				787F0742295C60CA000027A7 /* ChatTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		787F0741295C56E5000027A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				787F073F295C56E1000027A7 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7886DCA7294DD81100D77AEE = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +220,8 @@
 				78C3FF0A29557AE100C10F62 /* CounselorSelectViewController.swift */,
 				78C3FF0C29557B0900C10F62 /* CounselorProfileViewController.swift */,
 				78C3FF0E29557B1D00C10F62 /* ReservationViewController.swift */,
+				787F0738295C5638000027A7 /* ChatViewController.swift */,
+				787F073A295C564A000027A7 /* TableViewCell */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -217,6 +241,7 @@
 				78C673AF294DF500006898C8 /* Base */,
 				78C673B2294DF56B006898C8 /* UIView */,
 				78C673B5294DF65E006898C8 /* UIColor */,
+				787F0741295C56E5000027A7 /* Model */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -225,7 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				7886DCC4294DD81200D77AEE /* Info.plist */,
-				787008A72959E1C8007A7BF7 /* GoogleService-Info.plist */,
+				787F073D295C56CC000027A7 /* GoogleService-Info.plist */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -253,8 +278,8 @@
 		78C673A2294DF0B8006898C8 /* Presentaion */ = {
 			isa = PBXGroup;
 			children = (
-				07F2B38F295C40C10010CE4E /* LoginVC */,
 				07F2B390295C40D60010CE4E /* SignupVC */,
+				07F2B38F295C40C10010CE4E /* LoginVC */,
 				7886DCD3294DE76300D77AEE /* MainVC */,
 				B81E4E622951CEAF005F8AA3 /* ProfileVC */,
 				78C3FF0729557ABF00C10F62 /* HomeVC */,
@@ -458,7 +483,7 @@
 				782ABFBD29508CB100A8D6AC /* Adelle_Heavy.otf in Resources */,
 				782ABFC429508CB100A8D6AC /* Adelle_SemiBold.otf in Resources */,
 				782ABFBE29508CB100A8D6AC /* Adelle_light.otf in Resources */,
-				787008A82959E1C8007A7BF7 /* GoogleService-Info.plist in Resources */,
+				787F073E295C56CC000027A7 /* GoogleService-Info.plist in Resources */,
 				782ABFC529508CB100A8D6AC /* Adelle_SemiBoldItalic.otf in Resources */,
 				782ABFBC29508CB100A8D6AC /* Adelle_HeavyItalic.otf in Resources */,
 				7886DCC0294DD81200D77AEE /* Assets.xcassets in Resources */,
@@ -483,11 +508,13 @@
 				78C6739B294DEC27006898C8 /* AnnounceViewController.swift in Sources */,
 				78C3FF0929557ACE00C10F62 /* HomeViewController.swift in Sources */,
 				07F2B396295C411C0010CE4E /* ChoiceViewController.swift in Sources */,
+				787F0743295C60CA000027A7 /* ChatTableViewCell.swift in Sources */,
 				78C673AE294DF435006898C8 /* ColorSystem.swift in Sources */,
 				07F2B394295C410D0010CE4E /* SignupViewController.swift in Sources */,
 				78C673B1294DF50F006898C8 /* BaseViewController.swift in Sources */,
 				78C6739D294DEC5D006898C8 /* ProfileViewController.swift in Sources */,
 				78C3FF0D29557B0900C10F62 /* CounselorProfileViewController.swift in Sources */,
+				787F0740295C56E1000027A7 /* Model.swift in Sources */,
 				7886DCBE294DD81100D77AEE /* ideaFestival.xcdatamodeld in Sources */,
 				78C3FF0B29557AE100C10F62 /* CounselorSelectViewController.swift in Sources */,
 				7886DCB6294DD81100D77AEE /* SceneDelegate.swift in Sources */,
@@ -495,6 +522,7 @@
 				78C673A5294DF286006898C8 /* FontSystem.swift in Sources */,
 				78C673B4294DF594006898C8 /* UIView+addSubviews.swift in Sources */,
 				78C3FF0F29557B1D00C10F62 /* ReservationViewController.swift in Sources */,
+				787F0739295C5638000027A7 /* ChatViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

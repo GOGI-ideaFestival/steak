@@ -35,21 +35,26 @@ final class CounselorProfileViewController: BaseViewController {
         self.songRecommendationURL = songRecommendationURL
         super.init()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     private let counselorUIImageView = UIImageView().then{
         $0.layer.cornerRadius = 90
         $0.clipsToBounds = true
     }
+    
     private let counselorNameUILabel = UILabel().then{
         $0.textColor = UIColor(rgb: 0x000000)
         $0.font = UIFont.ideaFestival(size: 18, family: .semiBold)
     }
+    
     private let counselorSongRecommendationUILabel = UILabel().then{
         $0.textColor = UIColor(rgb: 0x636363)
         $0.font = UIFont.ideaFestival(size: 10, family: .semiBold)
     }
+    
     private let firstRectangleUIView = UIView().then{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
@@ -57,26 +62,31 @@ final class CounselorProfileViewController: BaseViewController {
         $0.layer.shadowOpacity = 0.6
         $0.layer.cornerRadius = 20
     }
+    
     private let musicUIImageView = UIImageView().then{
         $0.image = UIImage(systemName: "music.note")
         $0.tintColor = .systemGray
     }
+    
     private lazy var musicLinkUIButton = UIButton().then{
         $0.titleLabel?.font = UIFont.ideaFestival(size: 11, family: .semiBold)
         $0.setTitleColor(.black, for: .normal)
         $0.backgroundColor = UIColor.white
         $0.addTarget(self, action: #selector(openSafariAction), for: .touchUpInside)
     }
+    
     private let reservationUILabel = UILabel().then{
         $0.text = "상담 예약하기"
         $0.textColor = UIColor(rgb: 0x636363)
         $0.font = UIFont.ideaFestival(size: 10, family: .semiBold)
     }
+    
     private let reservationAvailableTimeUILabel = UILabel().then{
         $0.text = "예약 가능 시간"
         $0.textColor = UIColor(rgb: 0x000000)
         $0.font = UIFont.ideaFestival(size: 12, family: .semiBold)
     }
+    
     private let reservationAvailabeUIButton = UIButton().then{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.cornerRadius = 20
@@ -85,6 +95,7 @@ final class CounselorProfileViewController: BaseViewController {
         $0.layer.shadowOpacity = 0.6
         $0.addTarget(self, action: #selector(counselUIButtonDidTap), for: .touchUpInside)
     }
+    
     private let firtstResevationUILabel = UILabel().then{
         $0.layer.cornerRadius = 12
         $0.layer.masksToBounds = true
@@ -93,6 +104,7 @@ final class CounselorProfileViewController: BaseViewController {
         $0.font = UIFont.ideaFestival(size: 11, family: .bold)
         $0.textAlignment = .center
     }
+    
     private let secondResevationUILabel = UILabel().then{
         $0.layer.cornerRadius = 12
         $0.layer.masksToBounds = true
@@ -101,6 +113,7 @@ final class CounselorProfileViewController: BaseViewController {
         $0.font = UIFont.ideaFestival(size: 11, family: .bold)
         $0.textAlignment = .center
     }
+    
     private let thirdResevationUILabel = UILabel().then{
         $0.layer.cornerRadius = 12
         $0.layer.masksToBounds = true
@@ -109,6 +122,7 @@ final class CounselorProfileViewController: BaseViewController {
         $0.font = UIFont.ideaFestival(size: 11, family: .bold)
         $0.textAlignment = .center
     }
+    
     private let fourthResevationUILabel = UILabel().then{
         $0.layer.cornerRadius = 12
         $0.layer.masksToBounds = true
@@ -117,6 +131,7 @@ final class CounselorProfileViewController: BaseViewController {
         $0.font = UIFont.ideaFestival(size: 11, family: .bold)
         $0.textAlignment = .center
     }
+    
     private let fifthResevationUILabel = UILabel().then{
         $0.layer.cornerRadius = 12
         $0.layer.masksToBounds = true
@@ -125,6 +140,7 @@ final class CounselorProfileViewController: BaseViewController {
         $0.font = UIFont.ideaFestival(size: 11, family: .bold)
         $0.textAlignment = .center
     }
+    
     private let sixthResevationUILabel = UILabel().then{
         $0.layer.cornerRadius = 12
         $0.layer.masksToBounds = true
@@ -133,6 +149,7 @@ final class CounselorProfileViewController: BaseViewController {
         $0.font = UIFont.ideaFestival(size: 11, family: .bold)
         $0.textAlignment = .center
     }
+    
     private let seventhResevationUILabel = UILabel().then{
         $0.layer.cornerRadius = 12
         $0.layer.masksToBounds = true
@@ -141,6 +158,7 @@ final class CounselorProfileViewController: BaseViewController {
         $0.font = UIFont.ideaFestival(size: 11, family: .bold)
         $0.textAlignment = .center
     }
+    
     override func setup() {
         counselorNameUILabel.text = counselor
         counselorUIImageView.image = counselorUIImage
@@ -155,6 +173,7 @@ final class CounselorProfileViewController: BaseViewController {
         sixthResevationUILabel.text = sixthReservationAvailableTime
         seventhResevationUILabel.text = seventhReservationAvailableTime
     }
+    
     override func addView() {
         view.addSubviews(
             counselorUIImageView,
@@ -177,11 +196,13 @@ final class CounselorProfileViewController: BaseViewController {
         self.navigationItem.backBarButtonItem = backBarButtonItem
         backBarButtonItem.tintColor = UIColor(rgb: 0xAB988E)
     }
+    
     @objc private func openSafariAction(_ sender: UIButton){
         guard let url = URL(string: songRecommendationURL),
               UIApplication.shared.canOpenURL(url)else{return}
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
+    
     @objc private func counselUIButtonDidTap(_ sender: UIButton){
         
         counselorReservationUIImage = counselorUIImage
@@ -205,6 +226,7 @@ final class CounselorProfileViewController: BaseViewController {
         seventhReservationTime: seventhReservationTime)
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     override func setLayout() {
         self.counselorUIImageView.snp.makeConstraints{
             $0.size.equalTo(180)
