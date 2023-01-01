@@ -29,56 +29,63 @@ final class ReservationViewController: BaseViewController {
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let secondRectangleUIView = UIView().then{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let thirdRectangleUIView = UIView().then{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let fourthRectangleUIView = UIView().then{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let fifthRectangleUIView = UIView().then{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let sixthRectangleUIView = UIView().then{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let seventhRectangleUIView = UIView().then{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let firstReservationTimeUILabel = UILabel().then{
@@ -235,6 +242,118 @@ final class ReservationViewController: BaseViewController {
             sixthReservationUIButton,
             seventhReservationUIButton
         )
+    }
+    
+    @objc func firstReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "\(firstReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
+            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+                self.navigationController?.popToRootViewController(animated: false)
+            })
+            finishreservation.addAction(cancelAction)
+            self.present(finishreservation, animated: false, completion: nil)
+        }
+        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+    }
+    
+    @objc func secondReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "\(secondReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
+            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+                self.navigationController?.popToRootViewController(animated: false)
+            })
+            finishreservation.addAction(cancelAction)
+            self.present(finishreservation, animated: false, completion: nil)
+        }
+        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+    }
+    
+    @objc func thirdReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "\(thirdReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
+            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+                self.navigationController?.popToRootViewController(animated: false)
+            })
+            finishreservation.addAction(cancelAction)
+            self.present(finishreservation, animated: false, completion: nil)
+        }
+        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+    }
+    
+    @objc func fourthReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "\(fourthReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
+            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+                self.navigationController?.popToRootViewController(animated: false)
+            })
+            finishreservation.addAction(cancelAction)
+            self.present(finishreservation, animated: false, completion: nil)
+        }
+        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+    }
+    
+    @objc func fifthReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "\(fifthReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
+            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+                self.navigationController?.popToRootViewController(animated: false)
+            })
+            finishreservation.addAction(cancelAction)
+            self.present(finishreservation, animated: false, completion: nil)
+        }
+        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+    }
+    
+    @objc func sixthReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "\(sixthReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
+            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+                self.navigationController?.popToRootViewController(animated: false)
+            })
+            finishreservation.addAction(cancelAction)
+            self.present(finishreservation, animated: false, completion: nil)
+        }
+        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
+    }
+    
+    @objc func seventhReservationButtonDidTap(_ sender: UIButton){
+        let reservation = UIAlertController(title: "", message: "\(seventhReservationTime)로 예약하시겠습니까??", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+            let finishreservation = UIAlertController(title: "", message: "예약이 완료되었습니다!", preferredStyle: .alert)
+            let cancelAction = (UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+                self.navigationController?.popToRootViewController(animated: false)
+            })
+            finishreservation.addAction(cancelAction)
+            self.present(finishreservation, animated: false, completion: nil)
+        }
+        let cancelAction = (UIAlertAction(title: "취소", style: .destructive))
+        reservation.addAction(cancelAction)
+        reservation.addAction(okayAction)
+        present(reservation, animated: false, completion: nil)
     }
     
     override func setLayout() {
@@ -516,4 +635,3 @@ final class ReservationViewController: BaseViewController {
         }
     }
 }
-

@@ -52,20 +52,21 @@ final class CounselorProfileViewController: BaseViewController {
     
     private let counselorSongRecommendationUILabel = UILabel().then{
         $0.textColor = UIColor(rgb: 0x636363)
-        $0.font = UIFont.ideaFestival(size: 10, family: .semiBold)
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 15)
     }
     
     private let firstRectangleUIView = UIView().then{
         $0.backgroundColor = (UIColor(rgb: 0xFFFFFF))
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.cornerRadius = 20
+        $0.layer.shadowOffset = CGSize.zero
     }
     
     private let musicUIImageView = UIImageView().then{
         $0.image = UIImage(systemName: "music.note")
-        $0.tintColor = .systemGray
+        $0.tintColor = .black
     }
     
     private lazy var musicLinkUIButton = UIButton().then{
@@ -78,7 +79,7 @@ final class CounselorProfileViewController: BaseViewController {
     private let reservationUILabel = UILabel().then{
         $0.text = "상담 예약하기"
         $0.textColor = UIColor(rgb: 0x636363)
-        $0.font = UIFont.ideaFestival(size: 10, family: .semiBold)
+        $0.font = UIFont(name: "JainiPurva-Regular", size: 15)
     }
     
     private let reservationAvailableTimeUILabel = UILabel().then{
@@ -92,7 +93,8 @@ final class CounselorProfileViewController: BaseViewController {
         $0.layer.cornerRadius = 20
         $0.layer.shadowColor = UIColor.gray.cgColor
         $0.layer.shadowRadius = 6
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
+        $0.layer.shadowOffset = CGSize.zero
         $0.addTarget(self, action: #selector(counselUIButtonDidTap), for: .touchUpInside)
     }
     
@@ -215,63 +217,62 @@ final class CounselorProfileViewController: BaseViewController {
         seventhReservationTime = seventhReservationAvailableTime
         
         let vc = ReservationViewController(
-        counselorReservatonUIImage: counselorReservationUIImage,
-        counselor: counselor,
-        firstReservationTime: firstReservationTime,
-        secondReservationTime: secondReservationTime,
-        thirdReservationTime: thirdReservationTime,
-        fourthReservationTime: fourthReservationTime,
-        fifthReservationTime: fifthReservationTime,
-        sixthReservationTime: sixthReservationTime,
-        seventhReservationTime: seventhReservationTime)
+            counselorReservatonUIImage: counselorReservationUIImage,
+            counselor: counselor,
+            firstReservationTime: firstReservationTime,
+            secondReservationTime: secondReservationTime,
+            thirdReservationTime: thirdReservationTime,
+            fourthReservationTime: fourthReservationTime,
+            fifthReservationTime: fifthReservationTime,
+            sixthReservationTime: sixthReservationTime,
+            seventhReservationTime: seventhReservationTime)
         navigationController?.pushViewController(vc, animated: true)
     }
     
     override func setLayout() {
         self.counselorUIImageView.snp.makeConstraints{
-            $0.size.equalTo(180)
             $0.top.equalTo(self.view).offset(89)
-            $0.leading.equalTo(self.view).inset(105)
+            $0.centerX.equalTo(self.view)
+            $0.width.equalTo(180)
+            $0.height.equalTo(180)
         }
         self.counselorNameUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(279)
-            $0.leading.trailing.equalTo(self.view).inset(166)
+            $0.top.equalTo(self.counselorUIImageView.snp.bottom).offset(11)
+            $0.centerX.equalTo(self.counselorUIImageView.snp.centerX)
         }
         self.counselorSongRecommendationUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(375)
+            $0.top.equalTo(self.view).offset(397)
             $0.leading.equalTo(self.view).offset(35)
         }
         self.firstRectangleUIView.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(395)
-            $0.bottom.equalTo(self.view).inset(408)
+            $0.top.equalTo(self.view).offset(431)
             $0.leading.trailing.equalTo(self.view).inset(22)
+            $0.height.equalTo(41)
         }
         self.musicUIImageView.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(406)
-            $0.leading.equalTo(self.view).offset(43)
+            $0.top.equalTo(self.firstRectangleUIView.snp.top).offset(11)
+            $0.leading.equalTo(self.firstRectangleUIView.snp.leading).offset(21)
         }
         self.musicLinkUIButton.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(405)
-            $0.leading.equalTo(self.view).offset(68)
+            $0.top.equalTo(self.firstRectangleUIView.snp.top).offset(10)
+            $0.leading.equalTo(self.musicUIImageView.snp.trailing).offset(14)
         }
         self.reservationUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(462)
+            $0.top.equalTo(self.firstRectangleUIView.snp.bottom).offset(40)
             $0.leading.equalTo(self.view).offset(35)
         }
         self.reservationAvailableTimeUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(499)
-            $0.bottom.equalTo(self.view).inset(324)
-            $0.leading.equalTo(self.view).offset(44)
-            $0.trailing.equalTo(self.view).inset(274)
+            $0.top.equalTo(self.reservationAvailabeUIButton.snp.top).offset(16)
+            $0.leading.equalTo(self.reservationAvailabeUIButton.snp.leading).offset(22)
         }
         self.reservationAvailabeUIButton.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(483)
-            $0.bottom.equalTo(self.view).inset(211)
+            $0.top.equalTo(self.reservationUILabel.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(self.view).inset(22)
+            $0.height.equalTo(150)
         }
         self.firtstResevationUILabel.snp.makeConstraints{
-            $0.top.equalTo(self.view).offset(537)
-            $0.leading.equalTo(self.view).offset(44)
+            $0.top.equalTo(self.reservationAvailableTimeUILabel.snp.bottom).offset(17)
+            $0.leading.equalTo(self.reservationAvailabeUIButton.snp.leading).offset(22)
             $0.width.equalTo(72)
             $0.height.equalTo(26)
         }

@@ -1,13 +1,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    // MARK: - Properties
-    let bounds = UIScreen().bounds
-    // MARK: - LifeCycle
     
-//    override func loadView() {
-//        super.loadView()
-//    }
+    let bounds = UIScreen().bounds
     
     override func viewDidLoad() {
         super.loadView()

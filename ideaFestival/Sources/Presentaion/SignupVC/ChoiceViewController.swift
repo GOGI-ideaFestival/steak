@@ -40,10 +40,10 @@ final class ChoiceViewController: BaseViewController{
     
     override func addView(){
         view.addSubviews(
-        userSelectUIButton,
-        ownerSelectUIButton,
-        userUILabel,
-        ownerUILabel
+            userSelectUIButton,
+            ownerSelectUIButton,
+            userUILabel,
+            ownerUILabel
         )
     }
     

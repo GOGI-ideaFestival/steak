@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 import SnapKit
 import Then
 import Firebase
@@ -9,10 +10,15 @@ final class ProfileViewController: BaseViewController {
     var messages: [Message] = []
     
     private let backUIBarButtonItem = UIBarButtonItem()
+    private var profileImage: UIImage?
+    
+    private let leftBackUIBarButtonItem = UIBarButtonItem()
+    private let rightBackUIBarButtonItem = UIBarButtonItem()
     
     private let profileUIImageView = UIImageView().then {
         $0.backgroundColor = UIColor(rgb: 0xD9D9D9)
         $0.layer.cornerRadius = 0.5 * 137
+        $0.clipsToBounds = true
     }
     
     private let explainNicknameUILabel = UILabel().then {
@@ -48,16 +54,16 @@ final class ProfileViewController: BaseViewController {
         $0.textColor = UIColor(rgb: 0x000000)
         $0.font = .ideaFestival(size: 15, family: .regular)
     }
-
+    
     private let mypenaltyUIImageView = UIImageView().then {
         $0.backgroundColor = UIColor(rgb: 0xFFFFFF)
         $0.layer.cornerRadius = 20
         $0.layer.shadowColor = UIColor.gray.cgColor
-        $0.layer.shadowOpacity = 0.6
+        $0.layer.shadowOpacity = 0.2
         $0.layer.shadowOffset = CGSize.zero
         $0.layer.shadowRadius = 6
     }
-
+    
     private let penaltyMessageUILabel = UILabel().then {
         $0.textAlignment = .center
         $0.numberOfLines = 0
@@ -67,18 +73,37 @@ final class ProfileViewController: BaseViewController {
     }
     override func setup() {
         fetchProfile()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        rightBackUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(goToModify))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(rgb: 0x6A6868)
+        leftBackUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "로그아웃", style: .plain, target: self, action: #selector(goToModify))
+        navigationItem.leftBarButtonItem?.tintColor = UIColor(rgb: 0x6A6868)
+        self.navigationItem.backBarButtonItem = rightBackUIBarButtonItem
+        self.navigationItem.backBarButtonItem = leftBackUIBarButtonItem
     }
+   
+    override func viewWillAppear(_ animated: Bool) {
+        fetchContact()
+        profileUIImageView.image = profileImage
+        let nickname: String = UserDefaults.standard.string(forKey: "nickname") ?? "익명"
+        nicknameUILabel.text = nickname
+    }
+    
     override func addView() {
         view.addSubviews(
-        profileUIImageView,
-        explainNicknameUILabel,
-        nicknameUILabel,
-        explainEmailUILabel,
-        emailUILabel,
-        underLineUIView,
-        mypenaltyUILabel,
-        mypenaltyUIImageView,
-        penaltyMessageUILabel
+            profileUIImageView,
+            explainNicknameUILabel,
+            nicknameUILabel,
+            explainEmailUILabel,
+            emailUILabel,
+            underLineUIView,
+            mypenaltyUILabel,
+            mypenaltyUIImageView,
+            penaltyMessageUILabel
         )
         backUIBarButtonItem.tintColor = UIColor(rgb: 0x000000)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(goToModify))
@@ -128,6 +153,21 @@ final class ProfileViewController: BaseViewController {
         self.penaltyMessageUILabel.snp.makeConstraints {
             $0.centerX.equalTo(self.mypenaltyUIImageView.snp.centerX)
             $0.centerY.equalTo(self.mypenaltyUIImageView.snp.centerY)
+        }
+    }
+    
+    func fetchContact() {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+          let result = try context.fetch(fetchRequest)
+          for data in result as! [NSManagedObject] {
+            let aaa = (data.value(forKey: "profileImage") as! Data)
+            profileImage = UIImage(data: aaa)
+          }
+        } catch let error as NSError {
+          print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
     

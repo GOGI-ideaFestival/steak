@@ -2,6 +2,7 @@ import UIKit
 import SnapKit
 import Then
 import Firebase
+import CoreData
 
 final class SignupViewController: BaseViewController{
     
@@ -76,6 +77,16 @@ final class SignupViewController: BaseViewController{
         backUIBarButtonItem.tintColor = UIColor(rgb: 0xAB988E)
     }
     
+    override func addView(){
+        view.addSubviews(
+            emailUITextField,
+            pwdUITextField,
+            pwdCheckUITextField,
+            nicknameUITextField,
+            selectPositionUIButton
+        )
+    }
+    
     override func setLayout(){
         self.emailUITextField.snp.makeConstraints{
             $0.top.equalTo(self.view).offset(305)
@@ -109,6 +120,8 @@ final class SignupViewController: BaseViewController{
             wrongEmailAlertMessage()
         }
         pwdFormatCheck()
+        let controller = ChoiceViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc private func goToSelectView(){

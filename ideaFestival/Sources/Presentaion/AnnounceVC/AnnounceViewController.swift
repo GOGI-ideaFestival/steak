@@ -68,11 +68,11 @@ final class AnnounceViewController: BaseViewController {
     
     override func addView() {
         view.addSubviews(
-        noticeTitleUILabel,
-        notice1UIButton,
-        notice2UIButton,
-        notice3UIButton,
-        notice4UIButton
+            noticeTitleUILabel,
+            notice1UIButton,
+            notice2UIButton,
+            notice3UIButton,
+            notice4UIButton
         )
     }
     
